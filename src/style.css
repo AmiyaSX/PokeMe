@@ -1,0 +1,20 @@
+/* A debug class, used to separate components graphically during development */
+.debug {
+    border-style: solid;
+}
+
+html, div {
+    width: 100%;
+}
+
+.flexParent {
+    display: flex;
+    width: 100%;
+    margin: 10px;
+    gap: 10px;
+}
+
+.mainContent {
+    border-style: solid;
+    flex-wrap: wrap;
+}
