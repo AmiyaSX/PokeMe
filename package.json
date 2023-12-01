@@ -22,6 +22,7 @@
         "vite-plugin-virtual-html": "1.0.2"
     },
     "dependencies": {
+        "axios": "^1.6.2",
         "firebase": "^9.17.1",
         "mobx": "^6.8.0",
         "mobx-react-lite": "^3.4.2",

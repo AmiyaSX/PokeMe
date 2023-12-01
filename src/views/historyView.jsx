@@ -1,9 +1,14 @@
 import "/src/style.css";
+import Banner from "./components/banner";
 
 function HistoryView(props){
 
     return (
-        <div>
+        <div className="">
+            <Banner text="Your Pokemon History"/>
+            <div>
+                
+            </div>
         </div>
     );
     
