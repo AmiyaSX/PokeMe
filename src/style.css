@@ -1,20 +1,49 @@
-/* A debug class, used to separate components graphically during development */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .debug {
     border-style: solid;
 }
 
-html, div {
+html, body {
     width: 100%;
+    font-family: 'Arial', sans-serif;
 }
 
 .flexParent {
     display: flex;
-    width: 100%;
-    margin: 10px;
+    flex-direction: column;
+    align-items: center;
     gap: 10px;
+    margin: 10px;
 }
 
 .mainContent {
     border-style: solid;
     flex-wrap: wrap;
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+}
+
+@media screen and (min-width: 600px) {
+    .flexParent {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    body {
+        font-size: 18px;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }

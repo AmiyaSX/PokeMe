@@ -1,9 +1,13 @@
-/* 
-   The Model keeps only abstract data and has no notions of graphics or interaction
-*/
-import resolvePromise from "./resolvePromise";
+import axios from 'axios';
 
-export default { 
-applicationState: {},
+const API_URL = 'https://pokeapi.co/api/v2/';
 
-}
+export const getName = async (name) => {
+  try {
+    const response = await axios.get(`${API_URL}pokemon/${name}`);
+    return response.data;
+  } 
+  catch (error) {
+    console.error('Error fetch:', error);
+  }
+};
