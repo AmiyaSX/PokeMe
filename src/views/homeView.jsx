@@ -1,33 +1,33 @@
+import React, { useState, useEffect } from 'react';
+import { getPokemons } from "../pokemonService";
 import Banner from "./components/banner";
-import BackButton from "./components/backbutton";
 import PokeItem from "./components/pokeItem";
-import PokeIcon from "./../assets/images/pokecoin.png";
-import Image from "./../assets/images/Pikachu_c.png";
+import PokeIcon from "../assets/images/pokecoin.png"; // Adjust path as necessary
 import "/src/style.css";
 
-function HomeView(props) {
-    function goToTest() {
-        window.location.hash = "#/test";
-    }
+function HomeView() {
+    const [pokemons, setPokemons] = useState([]);
 
-    // Example array of Pokemon data
-    const pokemons = [
-        { name: "Pikachu", image: Image },
-        { name: "Charmander", image: Image }, // Replace with actual image
-        { name: "Bulbasaur", image: Image },  // Replace with actual image
-        { name: "Pikachu", image: Image },
-        { name: "Pikachu", image: Image },
-        { name: "Pikachu", image: Image },
-    ];
+    useEffect(() => {
+        const fetchPokemons = async () => {
+            const data = await getPokemons();
+            setPokemons(data);
+        };
+
+        fetchPokemons();
+    }, []);
+
+    const goToTest = () => {
+        window.location.hash = "#/test"
+        console.log('Navigate to the test page');
+    };
 
     return (
-        <div> 
+        <div>
             <Banner text="Pokemon Personality Test"/>
-            <BackButton />
-            <div className="normalText">Find your personalized Pokemon…</div>
             <div className="gridContainer">
                 {pokemons.map((pokemon, index) => (
-                    <PokeItem key={index} name={pokemon.name} image={pokemon.image} />
+                    <PokeItem key={index} name={pokemon.name} image={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`} />
                 ))}
             </div>
             <div className="floating-button-div">
