@@ -3,7 +3,9 @@ import Banner from "./components/banner";
 import "/src/style.css";
 
 function RegisterView(props){
-    
+    function register() {
+
+    }
     return (
         <div className="">
             <Banner text="Join and Try!"/>
@@ -11,9 +13,9 @@ function RegisterView(props){
                 <InputForm text="User Name: " type="text"/>
                 <InputForm text="Password: " type="password"/>
                 <div className="flextRowParent">
-                    <button className="button_1" onClick={''}>Register</button>
+                    <button className="button_1" onClick={register}>Register</button>
                 </div>
-                <div className="normalText">I have an account <a href="#/login">Login Here</a></div>
+                <div className="normalText">I have an account. <a href="#/login">Login Here</a></div>
                 
             </div>
         </div>

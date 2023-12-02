@@ -1,8 +1,10 @@
-import "/src/style.css";
 import Banner from "./components/banner";
-import Image from "./../assets/images/Pikachu_c.png";
+import BackButton from "./components/backbutton";
 import PokeItem from "./components/pokeItem";
 import PokeIcon from "./../assets/images/pokecoin.png";
+import Image from "./../assets/images/Pikachu_c.png";
+import "/src/style.css";
+
 function HomeView(props){
     function goToTest(){
         window.location.hash="#/test";
@@ -10,6 +12,7 @@ function HomeView(props){
     return (
         <div> 
             <Banner text="Pokemon Personality Test"/>
+            <BackButton />
             <div className="normalText">Find your personalized Pokemon…</div>
             <div className="gridContainer">
                 {/* TODO: render array  */}

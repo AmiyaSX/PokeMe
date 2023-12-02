@@ -1,8 +1,11 @@
-import "/src/style.css";
 import Banner from "./components/banner";
 import TestItem from "./components/testItem";
+import BackButton from "./components/backbutton";
 import Icon1 from "../assets/images/avatar.png";
 import Icon2 from "../assets/images/gaming.png";
+
+import "/src/style.css";
+
 function TestView(props){
     function goToResults(){
         window.location.hash="#/results";
@@ -10,6 +13,7 @@ function TestView(props){
     return (
             <div className="">
                 <Banner text="Test"/>
+                <BackButton />
                 <div className="columnContainer">
                     <TestItem text="Do you xxx xxx xxx xxxx?"/>
                     <TestItem text="Do you xxx xxx xxx xxxx?"/>
