@@ -6,32 +6,39 @@ import Icon2 from "../assets/images/gaming.png";
 
 import "/src/style.css";
 
-function TestView(props){
-    function goToResults(){
-        window.location.hash="#/results";
+function TestView(props) {
+    function goToResults() {
+        window.location.hash = "#/results";
     }
+    
+    const questions = [
+        "Do you xxx xxx xxx xxxx?",
+        "Do you xxx xxx xxx xxxx?",
+        "Do you xxx xxx xxx xxxx?",
+        "Do you xxx xxx xxx xxxx?",
+        "Do you xxx xxx xxx xxxx?",
+    ];
+
     return (
-            <div className="">
-                <Banner text="Test"/>
-                <BackButton />
-                <div className="columnContainer">
-                    <TestItem text="Do you xxx xxx xxx xxxx?"/>
-                    <TestItem text="Do you xxx xxx xxx xxxx?"/>
-                    <TestItem text="Do you xxx xxx xxx xxxx?"/>
-                    <TestItem text="Do you xxx xxx xxx xxxx?"/>
-                    <TestItem text="Do you xxx xxx xxx xxxx?"/>
-                </div>
-                <div className="flextRowParent">
-                    <button className="button_2">
-                        <img src={Icon1} width={58} height={58}/>
-                        <div>Review Choices</div>
-                    </button>
-                    <button className="button_2" onClick={goToResults}>
-                        <img src={Icon2} width={58} height={58}/>
-                        <div>Submit Now!</div>
-                    </button>
-                </div>
+        <div className="testViewContainer">
+            <Banner text="Test"/>
+            <BackButton />
+            <div className="columnContainer">
+                {questions.map(question => (
+                    <TestItem key={question} text={question} />
+                ))}
             </div>
+            <div className="flextRowParent">
+                <button className="button_2">
+                    <img src={Icon1} alt="Review Choices" style={{ width: 'auto', height: 'auto', maxWidth: '58px', maxHeight: '58px' }}/>
+                    <div>Review Choices</div>
+                </button>
+                <button className="button_2" onClick={goToResults}>
+                    <img src={Icon2} alt="Submit Now!" style={{ width: 'auto', height: 'auto', maxWidth: '58px', maxHeight: '58px' }}/>
+                    <div>Submit Now!</div>
+                </button>
+            </div>
+        </div>
     );
 }
 

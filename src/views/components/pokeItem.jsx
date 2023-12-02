@@ -5,7 +5,7 @@ function PokeItem(props){
                 <div >
                     <span className="card__footer">
                         <span>{props.name}</span>
-                        <span><button href="">find out more</button></span>
+                        <span><button href="">Find Out More!</button></span>
                     </span>
                 </div>
             </div>
