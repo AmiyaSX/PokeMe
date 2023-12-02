@@ -37,6 +37,13 @@ body,h1{
     flex-wrap: wrap;
 }
 
+@media screen and (max-width: 768px) {
+    .flexParent, .flextRowParent {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
 .gridContainer {
     display: grid;
     grid-template-columns: repeat(auto-fill, 500px);
@@ -47,11 +54,22 @@ body,h1{
     padding-bottom: 40px;
 }
 
+@media screen and (max-width: 480px) {
+    .gridContainer {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
 .card {
+    min-width: 250px;
+    min-height: 100px;
     --blur: 4px;
     --size: clamp(300px, 50vmin, 450px);
     width: var(--size);
     aspect-ratio: 4 / 3;
+    @media screen and (max-width: 480px) {
+        aspect-ratio: 1 / 1;
+    }
     position: relative;
     border-radius: 2rem;
     margin-top: 10px;
@@ -227,6 +245,13 @@ img {
     background-color: #373D7F;
 }
 
+@media screen and (max-width: 768px) {
+    .textBox, .textBox-history {
+        width: 80%; /* Adjust width for smaller screens */
+        padding: 15px;
+    }
+}
+
 .iconText {
     font-size: 20px;
     color: #ffffff;
@@ -253,6 +278,12 @@ img {
     font-size: 68px;
     padding: 100px;
     color: #373D7F;
+}
+
+@media screen and (max-width: 768px) {
+    .normalText, .normalText-test, .introText, .date, .iconText, .titleText {
+        font-size: smaller;
+    }
 }
 
 .inputForm {
