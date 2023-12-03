@@ -1,12 +1,22 @@
+import React, { useState, useEffect } from 'react';
+import { getPokemons } from "../pokemonService";
 import Banner from "./components/banner";
 import HistoryItem from "./components/historyItem";
 import BackButton from "./components/backbutton";
-import Icon1 from "../assets/images/avatar.png";
-import Icon2 from "../assets/images/eevee.png";
-import Icon3 from "../assets/images/gaming.png";
 import "/src/style.css";
 
-function HistoryView(props) {
+function HistoryView() {
+    const [pokemons, setPokemons] = useState([]);
+
+    useEffect(() => {
+        const fetchPokemons = async () => {
+            const data = await getPokemons(5); //can get more
+            setPokemons(data);
+        };
+
+        fetchPokemons();
+    }, []);
+
     function goToTest() {
         window.location.hash = "#/test";
     }
@@ -20,18 +30,20 @@ function HistoryView(props) {
             <Banner text="Your Pokemon History"/>
             <BackButton />
             <div className="historyItemsContainer">
-                <HistoryItem image={Icon1} intro="Lorem ipsum dolor sit amet..." date="28/11/23"/>
-                <HistoryItem image={Icon1} intro="Lorem ipsum dolor sit amet..." date="28/11/23"/>
-                <HistoryItem image={Icon1} intro="Lorem ipsum dolor sit amet..." date="28/11/23"/>
-                <HistoryItem image={Icon1} intro="Lorem ipsum dolor sit amet..." date="28/11/23"/>
+                {pokemons.map((pokemon, index) => (
+                    <HistoryItem 
+                        key={index} 
+                        image={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`} 
+                        intro={`Learn more about ${pokemon.name}:`}
+                        date="XX/XX/XXXX"
+                    />
+                ))}
             </div>
             <div className="flextRowParent">
                 <button className="button_2" onClick={goHome}>
-                    <img src={Icon2} alt="Home Icon" style={{ maxWidth: '58px', height: 'auto' }}/>
                     <div>Home</div>
                 </button>
                 <button className="button_2" onClick={goToTest}>
-                    <img src={Icon3} alt="Test Icon" style={{ maxWidth: '58px', height: 'auto' }}/>
                     <div>Go to Test!</div>
                 </button>
             </div>
