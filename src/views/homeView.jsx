@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getPokemons } from "../pokemonService";
 import Banner from "./components/banner";
 import PokeItem from "./components/pokeItem";
-import PokeIcon from "../assets/images/pokecoin.png"; // Adjust path as necessary
+import PokeIcon from "../assets/images/pokecoin.png";
 import "/src/style.css";
 
 function HomeView() {

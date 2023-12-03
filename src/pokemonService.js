@@ -12,4 +12,24 @@ const getPokemons = async (limit = 30, offset = 0) => {
   }
 };
 
-export { getPokemons };
+const getPokemonDetails = async (name) => {
+  try {
+    const response = await axios.get(`${API_URL}pokemon/${name.toLowerCase()}`);
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching details for ${name}:`, error);
+    return null;
+  }
+};
+
+const getPokemonSpecies = async (name) => {
+  try {
+    const response = await axios.get(`${API_URL}pokemon-species/${name.toLowerCase()}`);
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching species for ${name}:`, error);
+    return null;
+  }
+};
+
+export { getPokemons, getPokemonDetails, getPokemonSpecies };

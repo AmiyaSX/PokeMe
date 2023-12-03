@@ -1,36 +1,53 @@
-import Icon1 from "../assets/images/icon_1.png";
-import Icon2 from "../assets/images/icon_2.png";
-import Icon3 from "../assets/images/insignia.png";
+import React, { useState, useEffect } from 'react';
+import { getPokemonDetails, getPokemonSpecies } from "../pokemonService";
 import Banner from "./components/banner";
-import psyduck from "../assets/images/avatar_c.png";
 import BackButton from "./components/backbutton";
+import PokeItem from "./components/pokeItem";
 import "/src/style.css";
 
 function TestResultsView(props) {
+    const [pokemon, setPokemon] = useState(null);
+    const [species, setSpecies] = useState(null);
+
+    useEffect(() => {
+        const fetchPokemonData = async () => {
+            const pokemonData = await getPokemonDetails('pikachu'); //change so it displays the pokemon from test
+            setPokemon(pokemonData);
+
+            const speciesData = await getPokemonSpecies('pikachu'); //change so it displays the pokemon from tests
+            setSpecies(speciesData);
+        };
+
+        fetchPokemonData();
+    }, []);
+
+    const pokemonImageURL = pokemon ? `https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg` : '';
+
     return (
         <div>
             <Banner text="Your Pokemon is here!"/>
             <BackButton />
             <div className="columnContainer">
-                <img className="img_2" src={psyduck} alt="Psyduck"/>
+                {pokemon ? (
+                    <PokeItem key={pokemon.id} name={pokemon.name} image={pokemonImageURL} />
+                ) : (
+                    <p>Loading...</p>
+                )}
                 <div className="textBox">
                     <div className="introText">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        {pokemon && species ? (
+                            <div>
+                                <p>Name: {pokemon.name}</p>
+                                <p>Height: {pokemon.height * 10} cm</p>
+                                <p>Weight: {pokemon.weight / 10} kg</p>
+                                <p>Type: {pokemon.types.map((type) => type.type.name).join(', ')}</p>
+                                <p>Abilities: {pokemon.abilities.map((ability) => ability.ability.name).join(', ')}</p>
+                                <p>Fact: {species.flavor_text_entries.find(entry => entry.language.name === 'en').flavor_text}</p>
+                            </div>
+                        ) : (
+                            "Loading Pokémon details..."
+                        )}
                     </div>
-                </div>
-                <div className="flextRowParent">
-                    <button className="button_2">
-                        <img src={Icon1} alt="Try Again!" style={{ maxWidth: '58px', height: 'auto' }}/>
-                        <div>Try Again!</div>
-                    </button>
-                    <button className="button_2">
-                        <img src={Icon2} alt="Save My Results!" style={{ maxWidth: '58px', height: 'auto' }}/>
-                        <div>Save My Result!</div>
-                    </button>
-                    <button className="button_2">
-                        <img src={Icon3} alt="Share!" style={{ maxWidth: '58px', height: 'auto' }}/>
-                        <div>Share!</div>
-                    </button>
                 </div>
             </div>
         </div>

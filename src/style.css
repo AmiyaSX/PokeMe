@@ -158,8 +158,11 @@ body,h1{
 }
 
 .columnContainer {
+    display: flex;
     justify-content: center;
-    place-items: center;
+    align-items: center;
+    place-items: left;
+    flex-direction: column;
     flex-wrap: wrap;
     /* max-width: 800px; */
     width: 100%;
@@ -255,7 +258,7 @@ img {
 
 @media screen and (max-width: 768px) {
     .textBox, .textBox-history {
-        width: 80%; /* Adjust width for smaller screens */
+        width: 80%;
         padding: 15px;
     }
 }
