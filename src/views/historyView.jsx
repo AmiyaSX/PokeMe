@@ -35,7 +35,7 @@ function HistoryView() {
                         key={index} 
                         image={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`} 
                         intro={`Learn more about ${pokemon.name}:`}
-                        date="XX/XX/XXXX"
+                        date="XX/XX/XXXX" //fetch the actual date dynamically
                     />
                 ))}
             </div>

@@ -51,14 +51,14 @@ body,h1{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
     justify-content: center;
-    align-items: center;
-    padding: 5%;
+    align-items: start;
+    padding: 0%;
     width: 100%;
     gap: 20px;
     row-gap: 40px;
     overflow-y: hidden;
     margin-top: 40px;
-    margin: auto;
+    margin: 0 auto;
     padding-bottom: 40px;
 }
 
