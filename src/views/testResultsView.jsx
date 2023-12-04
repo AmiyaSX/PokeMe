@@ -66,15 +66,15 @@ function TestResultsView(props) {
                 <div className="flextRowParent">
                     <button className="button_2" onClick={handleTryAgain}>
                         <img src={Icon1} alt="Try Again" width={58} height={58}/>
-                        <div>Try Again!</div>
+                        <div style={{fontSize: '2.5vh'}}>Try Again!</div>
                     </button>
                     <button className="button_2" onClick={handleSaveResult}>
                         <img src={Icon2} alt="Save My Result" width={58} height={58}/>
-                        <div>Save My Result!</div>
+                        <div style={{fontSize: '2.5vh'}}>Save My Result!</div>
                     </button>
                     <button className="button_2" onClick={handleShare}>
                         <img src={Icon3} alt="Share" width={58} height={58}/>
-                        <div>Share!</div>
+                        <div style={{fontSize: '2.5vh'}}>Share!</div>
                     </button>
                 </div>
             </div>

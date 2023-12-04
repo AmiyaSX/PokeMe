@@ -49,26 +49,25 @@ body,h1{
 
 .gridContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fill, 23vw);
     justify-content: center;
-    align-items: start;
-    padding: 0%;
     width: 100%;
-    gap: 20px;
-    row-gap: 40px;
-    overflow-y: hidden;
+    border: black;
+    border-width: 10px;
+    row-gap: 2%;
     margin-top: 40px;
-    margin: 0 auto;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding: auto;
     padding-bottom: 40px;
 }
 
 .card {
-    min-width: 250px;
+    width: 21vw;
     transition: all 0.3s ease-in-out;
-    min-height: 100px;
+    height: fit-content;
     --blur: 4px;
     --size: clamp(300px, 50vmin, 450px);
-    width: var(--size);
     aspect-ratio: 4 / 3;
     @media screen and (max-width: 480px) {
         aspect-ratio: 1 / 1;
@@ -76,7 +75,7 @@ body,h1{
     position: relative;
     border-radius: 2rem;
     margin-top: 10px;
-    margin-left: 180px;
+    /* margin-left: 180px; */
     margin-bottom: 20px;
     overflow: hidden;
     cursor: pointer;
@@ -133,7 +132,7 @@ body,h1{
     display: flex;
     justify-content: space-between;
     width: 100%;
-    line-height: 58px;
+    height: 8vh;
     margin: 0 auto;
     background-color: #373D7F;
 }
@@ -173,9 +172,7 @@ body,h1{
     place-items: left;
     flex-direction: column;
     flex-wrap: wrap;
-    /* max-width: 800px; */
     width: 100%;
-    /* margin: auto; */
     padding: 30px;
 }
 
@@ -218,16 +215,18 @@ img {
 }
 
 .normalText {
-    font-size: 25px;
+    font-size: 2.8vh;
+    height: inherit;
     color: #373D7F;
     align-self: center;
-    text-align-last: center;
+    justify-content: center;
+    text-align: center;
     flex: 0 1 150px;
     margin-right: 10px;
 }
 
 .normalText-test {
-    font-size: 48px;
+    font-size: 3.5vh;
     color: #373D7F;
     align-self: center;
     text-align-last: center;
@@ -261,11 +260,9 @@ img {
     padding: 10px;
     padding-left: 24px;
     padding-right: 24px;
-    margin-left: 20px;
     text-align:justify;
     width: 64%;
     border-radius: 30px;
-    /* text-align: start; */
     line-height: 38px;
     margin-bottom: 40px;
     background-color: #373D7F;
@@ -279,20 +276,20 @@ img {
 }
 
 .iconText {
-    font-size: 20px;
+    font-size: 3vh;
     color: #ffffff;
-    margin-top: 10px;
+    margin-top: 2.5vh;
 }
 
 
 .introText {
-    font-size: 26px;
+    font-size: 3vh;
     color: #ffffff;
     margin-top: 10px;
 }
 
 .date {
-    font-size: 36px;
+    font-size: 3vh;
     color: #373D7F;
     align-self: center;
     text-align-last: center;
@@ -301,7 +298,7 @@ img {
 }
 
 .titleText {
-    font-size: 68px;
+    font-size: 6.5vh;
     padding: 100px;
     color: #373D7F;
 }
@@ -331,13 +328,13 @@ img {
     margin-top: 2px;
     margin-right: 5px;
     align-self: center;
-    width: 54px;
-    height: 54px;
+    width: 3.5vw;
+    height: auto;
 }
 
 .img_2 {
-    width: 300px;
-    height: 300px;
+    width: 30vw;
+    height: 30vw;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -346,8 +343,8 @@ img {
 }
 
 .img_3 {
-    width: 150px;
-    height: 150px;
+    width: 13vw;
+    height: auto;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -386,10 +383,9 @@ img {
 .button_2 {
     display: flex;
     place-items: center;
-    width: fit-content;
     border-radius: 20px;
-    height: 80px;
-    width: 330px;
+    height: 7vh;
+    width: 18vw;
     padding: 22px;
     color: white;
     border: #373D7F;
@@ -442,9 +438,8 @@ img {
     border-radius: 10px;
     padding: 10px;
     border: none;
-    left: 20px;
-    top: 100px;
-    gap: 6px;
+    left: 3vw;
+    top: 12vh;
     font-size: 28px;
     color: white;
     cursor: pointer;
@@ -457,17 +452,15 @@ img {
 }
 
 .menu {
-    margin-top: 2px;
     margin-right: 10px;
-    align-self: center;
     cursor: pointer;
-    width: 50px;
-    height: 50px;
+    width: 3.5vw;
+    height: 5vh;
 }
 
 .dropdown {
     float: left;
-    height: 74px;
+    height: 8vh;
     overflow: hidden;
 }
 
@@ -475,20 +468,20 @@ img {
 .dropbtn {
     border: none;
     outline: none;
-    height: 74px;
+    height: 8vh;
     color: white;
     padding: 14px 14px;
     background-color: inherit;
-    font-family: inherit; /* Important for vertical align on mobile phones */
-    margin: 0; /* Important for vertical align on mobile phones */
+    font-family: inherit;
+    margin: 0; 
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 74px;
+    top: 8vh;
     background-color: #373D7F;
-    width: 88px;
+    width: 8vw;
     padding: auto;
     height: fit-content;
     border-bottom-left-radius: 10px;
@@ -497,7 +490,6 @@ img {
     z-index: 1;
 }
 
-/* Links inside the dropdown */
 .dropdown-content a {
     float: none;
     color: white;
@@ -507,14 +499,12 @@ img {
     text-align: left;
 }
   
-/* Add a grey background color to dropdown links on hover */
 .dropdown-content a:hover{
     background-color: #555a9a;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
   
-/* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
     display: block;
 }

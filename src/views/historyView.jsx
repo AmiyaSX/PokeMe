@@ -41,10 +41,10 @@ function HistoryView() {
             </div>
             <div className="flextRowParent">
                 <button className="button_2" onClick={goHome}>
-                    <div>Home</div>
+                    <div style={{fontSize: '2.5vh'}}>Home</div>
                 </button>
                 <button className="button_2" onClick={goToTest}>
-                    <div>Go to Test!</div>
+                    <div style={{fontSize: '2.5vh'}}>Go to Test!</div>
                 </button>
             </div>
         </div>

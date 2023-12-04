@@ -30,12 +30,12 @@ function TestView(props) {
             </div>
             <div className="flextRowParent">
                 <button className="button_2">
-                    <img src={Icon1} alt="Review Choices" style={{ width: 'auto', height: 'auto', maxWidth: '58px', maxHeight: '58px' }}/>
-                    <div>Review Choices</div>
+                    <img src={Icon1} alt="Review Choices" style={{ width: 'auto', height: 'auto', maxWidth: '5vw', maxHeight: '5vh' }}/>
+                    <div style={{fontSize: '2.5vh'}}>Review Choices</div>
                 </button>
                 <button className="button_2" onClick={goToResults}>
-                    <img src={Icon2} alt="Submit Now!" style={{ width: 'auto', height: 'auto', maxWidth: '58px', maxHeight: '58px' }}/>
-                    <div>Submit Now!</div>
+                    <img src={Icon2} alt="Submit Now!" style={{ width: 'auto', height: 'auto', maxWidth: '5vw', maxHeight: '5vh' }}/>
+                    <div style={{fontSize: '2.5vh'}}>Submit Now!</div>
                 </button>
             </div>
         </div>
