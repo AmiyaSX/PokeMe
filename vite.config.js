@@ -6,12 +6,10 @@ import { nodePolyfills } from "vite-plugin-node-polyfills";
 
 import solidPlugin from "vite-plugin-solid";
 import virtualHtml from "vite-plugin-virtual-html";
-import ViteGHPages from "vite-plugin-gh-pages";
+// import ghPages from "vite-plugin-gh-pages";
 // import reactJsxPlugin from '@vitejs/plugin-react';
 // if solved-X.js (or .jsx or .vue or .css) exists, then solved-X.js is tested, otherwise  X.js
 const prefix = fs.existsSync("./src/solved-utilities.js") ? "solved-" : "";
-
-// we map every tw/tw*.jsx file to a virtual HTML available at http://localhost:PORT/tw*.html
 
 const virtualModuleId = "virtual:my-module";
 const resolvedVirtualModuleId = "\0" + virtualModuleId;
@@ -24,7 +22,7 @@ const pages = {
   },
 };
 
-pages.index = pages.test;
+pages.index = pages.react;
 
 export default defineConfig({
   plugins: [
@@ -47,7 +45,7 @@ export default defineConfig({
         },*/
     nodePolyfills({ protocolImports: true }), // needed by mocha
     virtualHtml({ pages }), // HTML mappings
-    ViteGHPages(),
+    // ViteGHPages(),
   ],
   server: {
     port: 8080,
