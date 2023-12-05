@@ -21,56 +21,54 @@ An interactive web application designed for Pokémon enthusiasts. The app provid
 - Improve UI design, add effect and animation. 
 
 ## Project Structure
-src      // The main source directory for the application's code  
+src                       // The main source directory for the application's code  
+1. assets  
+  - images                // Contains all static image files used within the application  
 
-├── assets  
+2. reactjs                // Holds the JavaScript files related to the React components and logic  
 
-│   └── images     // Contains all static image files used within the application  
+  - ReactRoot.jsx  
 
-├── reactjs        // Holds the JavaScript files related to the React components and logic  
+  - historyPresenter.jsx  // Manages the presentation logic for the user's history of interactions or test results  
 
-│   ├── ReactRoot.jsx  
+  - homePresenter.jsx     // Manages the presentation logic for the home view, including API interactions for displaying Pokémon  
 
-│   ├── historyPresenter.jsx  // Manages the presentation logic for the user's history of interactions or test results  
+  - index.jsx             // The entry point for React components  
 
-│   ├── homePresenter.jsx     // Manages the presentation logic for the home view, including API interactions for displaying Pokémon  
+  - loginPresenter.jsx    // Handle the presentation logic for user login  
 
-│   ├── index.jsx             // The entry point for React components  
+  - registerPresenter.jsx // Handle the presentation logic for user registration  
 
-│   ├── loginPresenter.jsx    // Handle the presentation logic for user login  
+  - testPresenter.jsx     // Handle the presentation logic for conducting tests  
 
-│   ├── registerPresenter.jsx // Handle the presentation logic for user registration  
+  - testResultPresenter.jsx       // Handle the presentation logic for displaying results  
 
-│   ├── testPresenter.jsx     // Handle the presentation logic for conducting tests  
+3. views                  // Contains the main view components that represent entire pages or large parts of pages  
 
-│   └── testResultPresenter.jsx // Handle the presentation logic for displaying results  
+  - components            // React components used across different views  
+  
+  - historyView.jsx       // The view component for displaying the user's history  
 
-└── views         // Contains the main view components that represent entire pages or large parts of pages  
+  - homeView.jsx          // The home page view component  
 
-│   ├── components            // React components used across different views  
+  - loginView.jsx         // View components for user login  
 
-│   ├── historyView.jsx       // The view component for displaying the user's history  
+  - promiseNoData.jsx     // View display according to status  
 
-│   ├── homeView.jsx          // The home page view component  
+  - registerView.jsx      // View components for user registration  
 
-│   ├── loginView.jsx         // View components for user login  
+  - testResultsView.jsx   // Displays the results of the personality test  
 
-│   ├── promiseNoData.jsx     // View display according to status  
+  - testView.jsx          // The view for conducting the personality test  
 
-│   ├── registerView.jsx      // View components for user registration  
+4. firebaseModel.js          // Handles interactions with Firebase for authentication and database services  
 
-│   ├── testResultsView.jsx   // Displays the results of the personality test  
+5. pokemonService.js         // Service for making API requests to the PokeAPI  
 
-│   └── testView.jsx          // The view for conducting the personality test  
+6. PokemeModel.js            // The model for the application  
 
-├── firebaseModel.js          // Handles interactions with Firebase for authentication and database services  
+7. resolvePromise.js         // Utility for resolving promises, potentially used to handle asynchronous operations  
 
-├── pokemonService.js         // Service for making API requests to the PokeAPI  
+8. style.css                 // The main stylesheet for the application, containing global styles and CSS variables  
 
-├── PokemeModel.js            // The model for the application  
-
-├── resolvePromise.js         // Utility for resolving promises, potentially used to handle asynchronous operations  
-
-├── style.css                 // The main stylesheet for the application, containing global styles and CSS variables  
-
-├── utilities.js              // General utility functions used across the application  
+9. tilities.js              // General utility functions used across the application  
