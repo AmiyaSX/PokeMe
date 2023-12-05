@@ -5,7 +5,7 @@ import PokeItem from "./components/pokeItem";
 import PokeIcon from "../assets/images/pokecoin.png";
 import "/src/style.css";
 
-function HomeView() {
+function HomeView({ goToPokemonInfo }) {
     const [pokemons, setPokemons] = useState([]);
 
     useEffect(() => {
@@ -27,7 +27,7 @@ function HomeView() {
             <Banner text="Pokemon Personality Test"/>
             <div className="gridContainer">
                 {pokemons.map((pokemon, index) => (
-                    <PokeItem key={index} name={pokemon.name} image={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`} />
+                    <PokeItem key={index} name={pokemon.name} goToPokemonInfo={() => goToPokemonInfo(pokemon.name)} image={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`} />
                 ))}
             </div>
             <div className="floating-button-div">
