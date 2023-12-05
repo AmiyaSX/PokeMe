@@ -16,7 +16,9 @@ function LoginView(props){
                 <div className="flextRowParent">
                     <button className="button_1" onClick={goHome}>Login</button>
                 </div>
-                <div className="normalText">Don't have an account yet? <a href="#/register">Register Here!</a></div>
+                <div className="columnContainer">
+                    <div className="normalText">Don't have an account yet? <a href="#/register">Register Here!</a></div>
+                </div>
                 
             </div>
         </div>

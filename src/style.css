@@ -217,22 +217,30 @@ img {
 
 .normalText {
     font-size: 2.8vh;
+    width: fit-content;
     height: inherit;
     color: #373D7F;
     align-self: center;
     justify-content: center;
     text-align: center;
-    flex: 0 1 150px;
-    margin-right: 10px;
+    flex: 0 1 15vh;
+    margin-right: 1vw;
 }
 
 .normalText-test {
     font-size: 3.5vh;
+    color: rgb(19, 15, 8);
+    align-self: center;
+    text-align-last: center;
+    flex: 0 1 9vh;
+}
+
+.normalText-test2 {
+    font-size: 3.5vh;
     color: #373D7F;
     align-self: center;
     text-align-last: center;
-    flex: 0 1 150px;
-    margin-right: 10px;
+    flex: 0 1 9vh;
 }
 
 @media screen and (max-width: 768px) {

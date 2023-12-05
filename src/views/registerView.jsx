@@ -15,7 +15,9 @@ function RegisterView(props){
                 <div className="flextRowParent">
                     <button className="button_1" onClick={register}>Register</button>
                 </div>
-                <div className="normalText">I have an account. <a href="#/login">Login Here</a></div>
+                <div className="columnContainer">
+                    <div className="normalText">I have an account. <a href="#/login">Login Here</a></div>
+                </div>
                 
             </div>
         </div>
