@@ -52,8 +52,6 @@ body,h1{
     grid-template-columns: repeat(auto-fill, 23vw);
     justify-content: center;
     width: 100%;
-    border: black;
-    border-width: 10px;
     row-gap: 2%;
     margin-top: 40px;
     margin-right: 20px;
@@ -75,7 +73,6 @@ body,h1{
     position: relative;
     border-radius: 2rem;
     margin-top: 10px;
-    /* margin-left: 180px; */
     margin-bottom: 20px;
     overflow: hidden;
     cursor: pointer;
@@ -229,7 +226,7 @@ img {
 
 .normalText-test {
     font-size: 3.5vh;
-    color: rgb(19, 15, 8);
+    color: #373D7F;
     align-self: center;
     text-align-last: center;
     flex: 0 1 9vh;
@@ -443,15 +440,13 @@ img {
 .float-button {
     display: flex;
     place-items: center;
-    gap: 10px;
-    background-color: #7d9ddd;
+    gap: 1vw;
     color: white;
     border: none;
     border-radius: 10%;
-    padding: 20px;
+    padding: 2.5vh;
     scale: 1;
-    border: #373D7F;
-    font-size: 28px;
+    font-size: 2vw;
     cursor: pointer;
     background: hsla(0, 1%, 61%, 0.5);
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
@@ -466,11 +461,11 @@ img {
     position: absolute;
     align-items: center;
     border-radius: 10px;
-    padding: 10px;
+    padding: 1.5vw;
     border: none;
     left: 3vw;
     top: 12vh;
-    font-size: 28px;
+    font-size: 2vw;
     color: white;
     cursor: pointer;
     background: hsla(0, 1%, 61%, 0.5);
@@ -500,7 +495,7 @@ img {
     outline: none;
     height: 8vh;
     color: white;
-    padding: 14px 14px;
+    padding: 1.5vw 2vh;
     background-color: inherit;
     font-family: inherit;
     margin: 0; 
