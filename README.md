@@ -11,7 +11,7 @@ npm run dev
 3. Point your browser to HTML addresses
 http://localhost:8080/react.html
 
-PokeMe Introduction
+PokeMe Introduction:
 
 An interactive web application designed for Pokémon enthusiasts. The app provides a fun and engaging personality test for finding users the matching Pokemons. Also, the website offers detailed information about each Pokémon. Users can take the test, get their Pokémon match, and explore a database of Pokémon details.
 
