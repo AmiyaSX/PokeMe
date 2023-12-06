@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getAuth } from 'firebase/auth';
 import { getDatabase, ref, get, set, onValue } from "firebase/database"
 import firebaseConfig from "/src/firebaseConfig.js";
 import {configure} from "mobx";
@@ -6,6 +7,8 @@ configure({ enforceActions: "never", });  // we don't use Mobx actions
 // Initialise firebase app, database, ref
 const app= initializeApp(firebaseConfig)
 const db= getDatabase(app)
+
+const auth = getAuth(app);
 
 const PATH="PokeMe"
 const rf=ref(db, PATH)
@@ -39,6 +42,6 @@ function connectToFirebase(model, watchFunction){
 }
 
 
-export {modelToPersistence, persistenceToModel, saveToFirebase, readFromFirebase}
+export {auth, modelToPersistence, persistenceToModel, saveToFirebase, readFromFirebase}
 
 export default connectToFirebase;

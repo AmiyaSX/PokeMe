@@ -330,6 +330,38 @@ img {
     border: none;
 }
 
+.error-message {
+    color: #D8000C;
+    background-color: #FFD2D2;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #D8000C;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.error-message-icon {
+    width: 50px;
+    padding-right: 5px;
+    vertical-align: middle;
+}
+
+.loading-message {
+    text-align: center;
+    color: #333; 
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; 
+}
+
+.loading-message img {
+    width: 25px; 
+    height: 25px; 
+}
+
 .img_1 {
     margin-top: 2px;
     margin-right: 5px;
@@ -408,23 +440,23 @@ img {
 }
 
 .itemButton {
-    background-color: #e1e1e100; /* A Pokémon-themed yellow color */
-    color: #3c444d; /* A contrasting Pokémon-themed blue color */
+    background-color: #e1e1e100; 
+    color: #3c444d; 
     border: none;
-    padding: 5px 10px; /* Adjust padding to make the button larger or smaller */
+    padding: 5px 10px; 
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px; /* Adjust font size as needed */
+    font-size: 16px; 
     margin-bottom: 8px;
     cursor: pointer;
-    border-radius: 10px; /* Rounded corners for the button */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* A subtle shadow to add depth */
-    transition-duration: 0.4s; /* Adds a transition effect when hovering or clicking */
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
+    transition-duration: 0.4s; 
   }
   
   .itemButton:hover {
-    background-color: #39393975; /* A slightly darker yellow for hover effect */
+    background-color: #39393975; 
     color: white;
   }  
 
