@@ -5,11 +5,10 @@ function PokeItem(props){
                 <div >
                     <span className="card__footer">
                         <span>{props.name}</span>
-                        <span><button href="">Find Out More!</button></span>
+                        <span><button className="itemButton" onClick={() => props.goToPokemonInfo(props.name)} href="">Find Out More!</button></span>
                     </span>
                 </div>
             </div>
-        
     );
 }
 

@@ -1,8 +1,48 @@
-import LoginView from "../views/loginView";
+import React, { useState } from 'react';
 import { observer } from "mobx-react-lite";
-export default
-observer(             // needed for the presenter to update (its view) when relevant parts of the model change
-    function Login(props){
-        return <LoginView />;
+import { auth } from '../firebaseModel';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import LoginView from "../views/loginView";
+
+const LoginPresenter = observer(() => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
+    function goHome(){
+        window.location.hash="#/home";
     }
-);
+
+    const formatErrorMessage = (error) => {
+        switch (error.code) {
+            case 'auth/invalid-email':
+            case 'auth/user-not-found':
+            case 'auth/wrong-password':
+                return "Incorrect username or password. Please try again.";
+            case 'auth/too-many-requests':
+                return "Too many attempts. Please try again later.";
+            default:
+                return "An unexpected error occurred. Please try again.";
+        }
+    };
+
+    const handleLogin = async () => {
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            console.log('Logged in user:', userCredential.user);
+            goHome();
+        } catch (error) {
+            setError(formatErrorMessage(error)); 
+            console.error('Login error:', error);
+        }
+    };
+
+    return <LoginView 
+               setEmail={setEmail} 
+               setPassword={setPassword} 
+               handleLogin={handleLogin} 
+               formatErrorMessage={formatErrorMessage}
+               error={error} />;
+});
+
+export default LoginPresenter;
