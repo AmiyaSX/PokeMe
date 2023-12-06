@@ -41,7 +41,7 @@ src                     // The main source directory for the application's code
 │   ├── testPresenter.jsx         // Handle the presentation logic for conducting tests
 │   └── testResultPresenter.jsx   // Handle the presentation logic for displaying results
 └── views               // Contains the main view components that represent entire pages or large parts of pages
-│   ├── components                // React components used across different views
+│   ├── components                // Custom components used across different views
 │   ├── historyView.jsx           // The view component for displaying the user's history
 │   ├── homeView.jsx              // The home page view component
 │   ├── loginView.jsx             // View components for user login
