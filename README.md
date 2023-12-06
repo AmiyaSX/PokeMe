@@ -11,7 +11,8 @@ An interactive web application designed for Pokémon enthusiasts. The app provid
 
 ## What We Have Done
 
-- Build up basic front-end interface, alowing routing within the app for navigation between different views (Home, Test, History, etc.).
+- Built up basic front-end interface, alowing routing within the app for navigation between different views (Home, Test, History, etc.).
+- Implemented basic interactions between user and the interface.
 - Created partial responsive CSS designs for a user-friendly experience across different devices.
 - Integrated the PokeAPI to fetch and display a list of Pokémon and their images on view items.
 
