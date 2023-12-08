@@ -14,7 +14,7 @@ function TestItem(props){
                       key={value}
                       className={`point_img ${selectedValue === value ? "selected" : ""}`} 
                       src={TestPoint} 
-                      style={{ width: `${9 - 2 * Math.abs(4 - value)}vw`, height: `${9 - 2 * Math.abs(4 - value)}vw` }} 
+                      style={{ width: `${2 + 2 * Math.abs(4 - value)}vw`, height: `${2 + 2 * Math.abs(4 - value)}vw` }} 
                       onClick={() => onSelect(value)}
                       alt="Test Point"
                     />
