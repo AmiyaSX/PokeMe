@@ -12,11 +12,19 @@ function TestView(props) {
   const [selections, setSelections] = useState({}); 
 
   const handleSelect = (question, value) => {
-    setSelections((prevSelections) => ({
-      ...prevSelections,
-      [question]: value,
-    }));
+    setSelections((prevSelections) => {
+      if (prevSelections[question] === value) {
+        const updatedSelections = { ...prevSelections };
+        delete updatedSelections[question]; 
+        return updatedSelections;
+      }
+      return {
+        ...prevSelections,
+        [question]: value,
+      };
+    });
   };
+  
 
   function goToResults() {
     window.location.hash = "#/results";
