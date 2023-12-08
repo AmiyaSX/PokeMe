@@ -28,6 +28,7 @@
     "firebase": "^9.23.0",
     "mobx": "^6.8.0",
     "mobx-react-lite": "^3.4.2",
+    "openai": "^4.20.1",
     "parse-git-config": "^3.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

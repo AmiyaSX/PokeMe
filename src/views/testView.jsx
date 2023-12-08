@@ -3,10 +3,21 @@ import TestItem from "./components/testItem";
 import BackButton from "./components/backbutton";
 import Icon1 from "../assets/images/avatar.png";
 import Icon2 from "../assets/images/gaming.png";
+import React, { useState } from 'react';
 import { callChatGPT } from "../openai/GetPersonalityMatch";
 import "/src/style.css";
 
 function TestView(props) {
+
+  const [selections, setSelections] = useState({}); 
+
+  const handleSelect = (question, value) => {
+    setSelections((prevSelections) => ({
+      ...prevSelections,
+      [question]: value,
+    }));
+  };
+
   function goToResults() {
     window.location.hash = "#/results";
   }
@@ -29,8 +40,13 @@ function TestView(props) {
       <Banner text="Test" />
       <BackButton />
       <div className="columnContainer">
-        {questions.map((question) => (
-          <TestItem key={question} text={question} />
+      {questions.map((question, index) => (
+          <TestItem 
+            key={question} 
+            text={question} 
+            onSelect={(value) => handleSelect(index, value)} 
+            selectedValue={selections[index]} 
+          />
         ))}
       </div>
       <div className="flextRowParent">

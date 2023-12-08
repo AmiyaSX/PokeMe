@@ -22,7 +22,7 @@ const LoginPresenter = observer(() => {
             case 'auth/too-many-requests':
                 return "Too many attempts. Please try again later.";
             default:
-                return "An unexpected error occurred. Please try again.";
+                return "Incorrect username or password. Please try again.";
         }
     };
 
