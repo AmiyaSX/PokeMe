@@ -15,14 +15,16 @@ An interactive web application designed for Pokémon enthusiasts. The app provid
 - Implemented basic interactions between user and the interface.
 - Created partial responsive CSS designs for a user-friendly experience across different devices.
 - Integrated the PokeAPI to fetch and display a list of Pokémon and their images on view items.
+- Implemented sharing feature(share to Facebook).
+- Finished Login&Register logic.
+- Collected user feedbacks with current application.
 
 ## What We Plan to Do
 
 - Set up the OpenAI API to analyze test results and suggest a matching Pokémon.
 - Finalize the logic that connects the personality test answers to the OpenAI API to get accurate Pokémon matches.
 - Add user authentication to enable saving test results and viewing history.
-- Implement sharing feature.
-- Do user evaluation with current application to further improve user experience.
+- Do some further improvement based on collected user feedback.
 - Improve UI design, add effect and animation. 
 
 ## Project Structure
