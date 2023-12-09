@@ -16,7 +16,7 @@ const resolvedVirtualModuleId = "\0" + virtualModuleId;
 const pages = {
   // map /react.html
   react: {
-    entry: "/src/reactjs/" + prefix + "index.jsx",
+    entry: "/src/presenter/" + prefix + "index.jsx",
     title: "PokeMe",
     body: '<div id="root"></div>',
   },

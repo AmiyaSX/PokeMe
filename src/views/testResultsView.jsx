@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { getPokemonDetails, getPokemonSpecies } from "../pokemonService";
+import { getPokemonDetails, getPokemonSpecies } from "../model/pokemonService";
 import Banner from "./components/banner";
-import BackButton from "./components/backbutton";
 import PokeItem from "./components/pokeItem";
 import Icon1 from "../assets/images/icon_1.png";
 import Icon2 from "../assets/images/icon_2.png";
@@ -46,7 +45,6 @@ function TestResultsView(props) {
   return (
     <div>
       <Banner text="Your Pokemon is here!" />
-      <BackButton />
       <div className="columnContainer">
         {pokemon ? (
           <PokeItem
