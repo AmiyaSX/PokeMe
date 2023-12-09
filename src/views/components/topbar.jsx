@@ -19,19 +19,21 @@ function TopBar() {
 
   return (
     <div className="topbar">
-      <div className="container1" onClick={goBack}>
-        <img src={pikachu} className="img_1" />
-        <div className="iconText">PokeMe</div>
-      </div>
       {notOnLoginPage && (
-        <div className="container2">
-          <div className="dropdown">
-            <button className="dropbtn">
-              <img src={menu} className="menu" />
-            </button>
-            <div class="dropdown-content">
-              <a href="#history">History</a>
-              <a href="#">Logout</a>
+        <div>
+          <div className="container1" onClick={goBack}>
+            <img src={pikachu} className="img_1" />
+            <div className="iconText">PokeMe</div>
+          </div>
+          <div className="container2">
+            <div className="dropdown">
+              <button className="dropbtn">
+                <img src={menu} className="menu" />
+              </button>
+              <div class="dropdown-content">
+                <a href="#history">History</a>
+                <a href="#">Logout</a>
+              </div>
             </div>
           </div>
         </div>
