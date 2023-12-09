@@ -20,7 +20,7 @@ function TopBar() {
   return (
     <div className="topbar">
       {notOnLoginPage && (
-        <div>
+        <>
           <div className="container1" onClick={goBack}>
             <img src={pikachu} className="img_1" />
             <div className="iconText">PokeMe</div>
@@ -36,7 +36,7 @@ function TopBar() {
               </div>
             </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
