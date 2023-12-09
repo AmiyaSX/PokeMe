@@ -27,7 +27,7 @@ function HistoryView() {
   return (
     <div>
       <Banner text="Your Pokemon History" />
-      <div className="historyItemsContainer">
+      <div>
         {pokemons.map((pokemon, index) => (
           <HistoryItem
             key={index}

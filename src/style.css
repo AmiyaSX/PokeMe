@@ -38,7 +38,6 @@ h1 {
 .flextRowParent {
   display: flex;
   gap: 10px;
-  margin: 10px;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -226,6 +225,13 @@ img {
   width: fit-content;
 }
 
+.login-pikachu {
+  display: flex;
+  justify-content: center;
+  height: 4vw;
+  margin-bottom: -5.04px;
+}
+
 .normalText {
   font-size: 2.5vh;
   display: -webkit-box;
@@ -309,7 +315,6 @@ img {
 .introText {
   font-size: 3vh;
   color: #ffffff;
-  margin-top: 10px;
 }
 
 .date {
@@ -447,7 +452,6 @@ img {
 .button_1 {
   width: 13vw;
   height: 5vh;
-  margin-top: 4vh;
   border-radius: 10px;
   color: #ffffff;
   font-size: 1.5vw;
@@ -464,7 +468,7 @@ img {
   display: flex;
   place-items: center;
   border-radius: 20px;
-  height: 7vh;
+  height: 9vh;
   width: 18vw;
   padding: 22px;
   color: white;
@@ -504,7 +508,7 @@ img {
 
 .floating-button-div {
   position: fixed;
-  top: 86%;
+  bottom: 3%;
   right: 43%;
   padding: 10px;
   width: fit-content;
