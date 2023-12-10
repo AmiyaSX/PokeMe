@@ -27,6 +27,11 @@ function TestView(props) {
   function goToResults() {
     window.location.hash = "#/results";
   }
+  function toTop() {
+    document.documentElement.scrollIntoView({
+      behavior:'smooth'
+    })
+  }
 
   return (
     <div className="testViewContainer">
@@ -42,7 +47,7 @@ function TestView(props) {
         ))}
       </div>
       <div className="flextRowParent">
-        <button className="button_2">
+        <button className="button_2" onClick={toTop}>
           <img
             src={Icon1}
             alt="Review Choices"

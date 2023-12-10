@@ -33,7 +33,7 @@ function TopBar() {
               <button className="dropbtn">
                 <img src={menu} className="menu" />
               </button>
-              <div class="dropdown-content">
+              <div className="dropdown-content">
                 <a href="#history">History</a>
                 <a href="#">Logout</a>
               </div>
