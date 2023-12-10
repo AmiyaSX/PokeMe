@@ -24,7 +24,7 @@ function TopBar() {
     <div className="topbar">
       {notOnLoginPage && notOnRegisterPage && (
         <>
-          <div className="container1" onClick={goBack}>
+          <div className="topbarIcon" onClick={goBack}>
             <img src={pikachu} className="img_1" />
             <div className="iconText">PokeMe</div>
           </div>

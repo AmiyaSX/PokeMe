@@ -218,6 +218,14 @@ img {
   transform: translateY(4vh);
 }
 
+.topbarIcon {
+  display: flex;
+  justify-content: left;
+  margin-left: 10px;
+  cursor: pointer;
+  width: fit-content;
+}
+
 .container1 {
   display: flex;
   justify-content: left;
