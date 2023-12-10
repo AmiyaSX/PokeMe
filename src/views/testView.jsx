@@ -2,6 +2,7 @@ import Banner from "./components/banner";
 import TestItem from "./components/testItem";
 import Icon1 from "../assets/images/avatar.png";
 import Icon2 from "../assets/images/gaming.png";
+import _get_window_height from "../utilities";
 import React, { useState } from "react";
 import { callChatGPT } from "../model/openai/GetPersonalityMatch";
 import questions from "../model/questions";
@@ -10,16 +11,21 @@ import "/src/style.css";
 function TestView(props) {
   const [selections, setSelections] = useState({});
 
-  const handleSelect = (question, value) => {
+  const handleSelect = (index, value) => {
     setSelections((prevSelections) => {
-      if (prevSelections[question] === value) {
+      if (prevSelections[index] === value) {
         const updatedSelections = { ...prevSelections };
-        delete updatedSelections[question];
+        delete updatedSelections[index];
         return updatedSelections;
+      } else {
+        document.documentElement.scrollTo({
+          top: (_get_window_height()/3.3)*index + _get_window_height()/4.8,
+          behavior:'smooth'
+        })
       }
       return {
         ...prevSelections,
-        [question]: value,
+        [index]: value,
       };
     });
   };
@@ -27,6 +33,7 @@ function TestView(props) {
   function goToResults() {
     window.location.hash = "#/results";
   }
+
   function toTop() {
     document.documentElement.scrollIntoView({
       behavior:'smooth'
@@ -38,11 +45,12 @@ function TestView(props) {
       <Banner text="Test" />
       <div className="columnContainer">
         {questions.map((question, index) => (
-          <TestItem
-            key={question}
-            text={question.question}
-            onSelect={(value) => handleSelect(index, value)}
-            selectedValue={selections[index]}
+            <TestItem
+              id={"test-"+index}
+              key={question.id}
+              text={question.question}
+              onSelect={(value) => handleSelect(index, value)}
+              selectedValue={selections[index]}
           />
         ))}
       </div>
