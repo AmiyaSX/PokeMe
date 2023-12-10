@@ -7,12 +7,13 @@ const goBack = () => {
 };
 
 function TopBar() {
-  const [notOnLoginPage, setNotOnLoginPage] = useState(window.location.hash!=="#"&&window.location.hash!=="#/login");
+  const [notOnLoginPage, setNotOnLoginPage] = useState(window.location.hash!==""&&window.location.hash!=="#"&&window.location.hash!=="#/login");
   const [notOnRegisterPage, setNotOnRegisterPage] = useState(window.location.hash!=="#/register");
 
   useEffect(() => {
     const handleHashChange = () => {
-      setNotOnLoginPage(window.location.hash!=="#"&&window.location.hash!=="#/login");
+      console.log(window.location.hash)
+      setNotOnLoginPage(window.location.hash!==""&&window.location.hash!=="#"&&window.location.hash!=="#/login");
       setNotOnRegisterPage(window.location.hash!=="#/register");
       
     };
