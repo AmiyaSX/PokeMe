@@ -7,11 +7,14 @@ const goBack = () => {
 };
 
 function TopBar() {
-  const [notOnLoginPage, setNotOnLoginPage] = useState(window.location.hash);
+  const [notOnLoginPage, setNotOnLoginPage] = useState(window.location.hash!=="#"&&window.location.hash!=="#/login");
+  const [notOnRegisterPage, setNotOnRegisterPage] = useState(window.location.hash!=="#/register");
 
   useEffect(() => {
     const handleHashChange = () => {
-      setNotOnLoginPage(window.location.hash);
+      setNotOnLoginPage(window.location.hash!=="#"&&window.location.hash!=="#/login");
+      setNotOnRegisterPage(window.location.hash!=="#/register");
+      
     };
 
     window.addEventListener("hashchange", handleHashChange);
@@ -19,7 +22,7 @@ function TopBar() {
 
   return (
     <div className="topbar">
-      {notOnLoginPage && (
+      {notOnLoginPage && notOnRegisterPage && (
         <>
           <div className="container1" onClick={goBack}>
             <img src={pikachu} className="img_1" />
