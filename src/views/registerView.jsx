@@ -40,6 +40,7 @@ function RegisterView(props){
                         {props.error}
                     </div>
                 )}
+                <div className='gap'/>
                 <div className="flextRowParent">
                     <button className="button_1" onClick={props.handleRegister}>Register</button>
                 </div>

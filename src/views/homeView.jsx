@@ -3,6 +3,7 @@ import { getPokemons } from "../model/pokemonService";
 import Banner from "./components/banner";
 import PokeItem from "./components/pokeItem";
 import PokeIcon from "../assets/images/pokecoin.png";
+import PikachuHello from "../assets/images/pikachuhello.gif";
 import "/src/style.css";
 
 function HomeView({ goToPokemonInfo }) {
@@ -36,6 +37,9 @@ function HomeView({ goToPokemonInfo }) {
         ))}
       </div>
       <div className="floating-button-div">
+        <div className="login-pikachu">
+          <img src={PikachuHello} alt="pikachu hello" />
+        </div>
         <button className="float-button" onClick={goToTest}>
           <img
             src={PokeIcon}
