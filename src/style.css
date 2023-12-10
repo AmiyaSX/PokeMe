@@ -199,10 +199,53 @@ h1 {
   }
 }
 
-@media screen and (min-width: 1024px) {
-  body {
-    font-size: 18px;
-  }
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    .flexParent, .flextRowParent{
+        gap: 5px;
+    }
+
+    .card {
+        width: 70%;
+    }
+
+    .button_1, .button_2, .float-button, .back-button {
+        font-size: 4vw;
+        padding: 15px;
+    }
+
+    .normalText, .normalText-test, .introText, .date, .iconText, .titleText {
+        font-size: 4vw; 
+    }
+
+    .textBox, .textBox-history {
+        padding: 10px;
+        width: 90%;
+    }
+
+    .login-button {
+        font-size: 1em;
+        padding: 15px 30px;
+      }
+    
+    .inputform {
+        width: calc(100% - 2 * 4);
+        margin: 5px 0;
+        padding: 10px;
+    }
+
+    .gridContainer {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .card {
+        width: 100%;
+    }
 }
 
 img {
@@ -247,7 +290,7 @@ img {
 }
 
 .normalText {
-  font-size: 2.5vh;
+  font-size: 1.4rem;
   display: -webkit-box;
   -webkit-box-orient: block-axis;
   /* -webkit-line-clamp: 1; */
@@ -261,7 +304,7 @@ img {
 }
 
 .normalText-test {
-  font-size: 3.5vh;
+  font-size: 2.2rem;
   color: #373d7f;
   align-self: center;
   text-align-last: center;
@@ -269,7 +312,7 @@ img {
 }
 
 .normalText-test2 {
-  font-size: 3.5vh;
+  font-size: 2.2rem;
   color: #373d7f;
   align-self: center;
   text-align-last: center;
@@ -319,7 +362,7 @@ img {
 }
 
 .iconText {
-  font-size: 3vh;
+  font-size: 2rem;
   color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -327,7 +370,7 @@ img {
 }
 
 .introText {
-  font-size: 3vh;
+  font-size: 2rem;
   color: #ffffff;
 }
 
@@ -341,7 +384,7 @@ img {
 }
 
 .titleText {
-  font-size: 6.5vh;
+  font-size: 4.4rem;
   padding: 100px;
   color: #373d7f;
 }
