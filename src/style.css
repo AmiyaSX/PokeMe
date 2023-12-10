@@ -204,6 +204,10 @@ h1 {
         font-size: 16px;
     }
 
+    .banner {
+        font-size: xx-small;
+    }
+
     .flexParent, .flextRowParent{
         gap: 5px;
     }
