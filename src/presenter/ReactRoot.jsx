@@ -10,6 +10,8 @@ import Start from "./startPresenter";
 import History from "./historyPresenter";
 import TopBar from "../views/components/topbar";
 import React, { useEffect, useState } from "react";
+import { AuthProvider } from "../model/authContext";
+
 export default observer(function ReactRoot(props) {
   const [notOnStartPage, setNotOnStartPage] = useState(window.location.hash!=="");
   useEffect(() => {
@@ -33,15 +35,17 @@ export default observer(function ReactRoot(props) {
   }
   function App(props) {
     return (
-      <div>
-        {
-          notOnStartPage && (
-            <TopBar />
-          )
-        }
-        <RouterProvider router={makeRouter(props.model)} />
-      </div>
-    );
+            <AuthProvider>
+              <div>
+                {
+                  notOnStartPage && (
+                    <TopBar />
+                  )
+                }
+                <RouterProvider router={makeRouter(props.model)} />
+              </div>
+            </AuthProvider>
+          );
   }
   return <App model={props.model}></App>;
 });

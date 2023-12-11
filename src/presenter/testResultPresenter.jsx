@@ -1,8 +1,12 @@
 import TestResultsView from "../views/testResultsView";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../model/authContext";
 import { observer } from "mobx-react-lite";
 export default
 observer(             // needed for the presenter to update (its view) when relevant parts of the model change
     function TestResult(props){
+
+        const { currentUser } = useContext(AuthContext);
 
         const handleTryAgain = () => {
             window.location.hash = "#/test"; 

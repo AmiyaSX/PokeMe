@@ -1,9 +1,13 @@
 import HomeView from "../views/homeView";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../model/authContext";
 import { useNavigate } from 'react-router-dom';
 import { observer } from "mobx-react-lite";
 export default
 observer(             // needed for the presenter to update (its view) when relevant parts of the model change
     function Home(props){
+
+        const { currentUser } = useContext(AuthContext);
         const navigate = useNavigate();
 
         const goToPokemonInfo = (pokemonName) => {

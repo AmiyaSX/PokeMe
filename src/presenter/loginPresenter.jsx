@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../model/authContext";
 import { observer } from "mobx-react-lite";
 import { auth } from "../model/firebaseModel";
 import { signInWithEmailAndPassword } from "firebase/auth";
