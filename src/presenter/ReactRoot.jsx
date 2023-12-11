@@ -3,6 +3,7 @@ import { observer } from "mobx-react-lite";
 import Login from "./loginPresenter";
 import Register from "./registerPresenter";
 import Home from "./homePresenter";
+import PokemonDetailsView from "../views/pokemonDetailsView";
 import Test from "./testPresenter";
 import Result from "./testResultPresenter";
 import Start from "./startPresenter";
@@ -27,6 +28,7 @@ export default observer(function ReactRoot(props) {
       { path: "/test", element: <Test model={model} /> },
       { path: "/results", element: <Result model={model} /> },
       { path: "/history", element: <History model={model} /> },
+      { path: "/pokemon/:name", element: <PokemonDetailsView model={model} /> }
     ]);
   }
   function App(props) {

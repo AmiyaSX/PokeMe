@@ -6,7 +6,7 @@ import PokeIcon from "../assets/images/pokecoin.png";
 import PikachuHello from "../assets/images/pikachuhello.gif";
 import "/src/style.css";
 
-function HomeView({ goToPokemonInfo }) {
+function HomeView(props) {
   const [pokemons, setPokemons] = useState([]);
 
   useEffect(() => {
@@ -18,20 +18,15 @@ function HomeView({ goToPokemonInfo }) {
     fetchPokemons();
   }, []);
 
-  const goToTest = () => {
-    window.location.hash = "#/test";
-    console.log("Navigate to the test page");
-  };
-
   return (
-    <div>
+      <div>
       <Banner text="Pokemon Personality Test" />
       <div className="gridContainer">
         {pokemons.map((pokemon, index) => (
           <PokeItem
             key={index}
             name={pokemon.name}
-            goToPokemonInfo={() => goToPokemonInfo(pokemon.name)}
+            goToPokemonInfo={() => props.goToPokemonInfo(pokemon.name)}
             image={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`}
           />
         ))}
@@ -40,7 +35,7 @@ function HomeView({ goToPokemonInfo }) {
         <div className="login-pikachu">
           <img src={PikachuHello} alt="pikachu hello" />
         </div>
-        <button className="float-button" onClick={goToTest}>
+        <button className="float-button" onClick={props.goToTest}>
           <img
             src={PokeIcon}
             alt="PokeIcon"
