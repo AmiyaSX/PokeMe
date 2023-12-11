@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:900");
+
+.slash {
+  background: radial-gradient(ellipse at bottom, #f9f5d3 0%, rgb(250, 212, 43));
+  background-size: cover;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow-y: hidden;
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 32vh;
+  letter-spacing: 1vw;
+  position: absolute;
+  top: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  background: url("assets/images/bg2.jpeg");
+  background-size: 36% auto;
+  background-clip: text;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 20s linear infinite;
+  -moz-animation: shine 20s linear infinite;
+  -webkit-animation: shine 20s linear infinite;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  user-select:text;
+}
+
+.text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 3vh;
+  position: absolute;
+  top: 50%;
+  left: auto;
+  right: auto;
+  text-align: center;
+  color: rgb(93, 91, 91);
+}
+
+.login-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10vh;
+  top: 60%;
+  height: fit-content;
+  position: absolute;
+  left: auto;
+  right: auto;
+  text-align: center;
+  cursor: pointer;
+  color: rgb(93, 91, 91);
+}
+
+.login-text:hover {
+  color: rgb(29, 28, 28);
+}
+
+@keyframes shine {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}

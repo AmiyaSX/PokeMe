@@ -19,7 +19,7 @@ function TestView(props) {
         return updatedSelections;
       } else {
         document.documentElement.scrollTo({
-          top: (_get_window_height()/3.3)*index + _get_window_height()/4.8,
+          top: (_get_window_height()/2.9)*index + _get_window_height()/4.8,
           behavior:'smooth'
         })
       }

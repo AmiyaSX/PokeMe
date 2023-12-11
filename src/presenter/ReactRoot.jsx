@@ -5,12 +5,22 @@ import Register from "./registerPresenter";
 import Home from "./homePresenter";
 import Test from "./testPresenter";
 import Result from "./testResultPresenter";
+import Start from "./startPresenter";
 import History from "./historyPresenter";
 import TopBar from "../views/components/topbar";
+import React, { useEffect, useState } from "react";
 export default observer(function ReactRoot(props) {
+  const [notOnStartPage, setNotOnStartPage] = useState(window.location.hash!=="");
+  useEffect(() => {
+    const handleHashChange = () => {
+      setNotOnStartPage(window.location.hash!=="");
+      
+    };
+    window.addEventListener("hashchange", handleHashChange);
+  }, []);
   function makeRouter(model) {
     return createHashRouter([
-      { path: "/", element: <Login model={model} /> },
+      { path: "/", element: <Start model={model} /> },
       { path: "/login", element: <Login model={model} /> },
       { path: "/register", element: <Register model={model} /> },
       { path: "/home", element: <Home model={model} /> },
@@ -22,7 +32,11 @@ export default observer(function ReactRoot(props) {
   function App(props) {
     return (
       <div>
-        <TopBar />
+        {
+          notOnStartPage && (
+            <TopBar />
+          )
+        }
         <RouterProvider router={makeRouter(props.model)} />
       </div>
     );
