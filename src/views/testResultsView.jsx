@@ -27,21 +27,6 @@ function TestResultsView(props) {
     ? `https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`
     : "";
 
-  // Someone later will implement the onClicks here
-  const handleTryAgain = () => {
-    console.log("Try Again clicked");
-  };
-  const handleSaveResult = () => {
-    console.log("Save My Result clicked");
-  };
-  const handleShare = () => {
-    window.open(
-      "https://www.facebook.com/sharer/sharer.php?u=" +
-        "https://pokeme-dh2642.web.app",
-      "_blank"
-    );
-  };
-
   return (
     <div>
       <Banner text="Your Pokemon is here!" />
@@ -86,15 +71,15 @@ function TestResultsView(props) {
           </div>
         </div>
         <div className="flextRowParent">
-          <button className="button_2" onClick={handleTryAgain}>
+          <button className="button_2" onClick={props.handleTryAgain}>
             <img src={Icon1} alt="Try Again" width={58} height={58} />
             <div style={{ fontSize: "2.5vh" }}>Try Again!</div>
           </button>
-          <button className="button_2" onClick={handleSaveResult}>
+          <button className="button_2" onClick={props.handleSaveResult}>
             <img src={Icon2} alt="Save My Result" width={58} height={58} />
             <div style={{ fontSize: "2.5vh" }}>Save My Result!</div>
           </button>
-          <button className="button_2" onClick={handleShare}>
+          <button className="button_2" onClick={props.handleShare}>
             <img src={Icon3} alt="Share" width={58} height={58} />
             <div style={{ fontSize: "2.5vh" }}>Share!</div>
           </button>

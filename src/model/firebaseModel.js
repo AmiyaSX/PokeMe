@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getDatabase, ref, get, set, onValue } from "firebase/database";
-import firebaseConfig from "./firebaseConfig.js";
+import firebaseConfig from "../firebaseConfig.js";
 import { configure } from "mobx";
 configure({ enforceActions: "never" }); // we don't use Mobx actions
 // Initialise firebase app, database, ref
