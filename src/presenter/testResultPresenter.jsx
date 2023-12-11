@@ -6,6 +6,9 @@ observer(             // needed for the presenter to update (its view) when rele
 
         const handleTryAgain = () => {
             window.location.hash = "#/test"; 
+            document.documentElement.scrollIntoView({
+                behavior:'smooth'
+              })
             console.log("Try Again clicked");
         };
         const handleSaveResult = () => {

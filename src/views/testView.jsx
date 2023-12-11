@@ -2,43 +2,12 @@ import Banner from "./components/banner";
 import TestItem from "./components/testItem";
 import Icon1 from "../assets/images/avatar.png";
 import Icon2 from "../assets/images/gaming.png";
-import _get_window_height from "../utilities";
 import React, { useState } from "react";
 import { callChatGPT } from "../model/openai/GetPersonalityMatch";
 import questions from "../model/questions";
 import "/src/style.css";
 
 function TestView(props) {
-  const [selections, setSelections] = useState({});
-
-  const handleSelect = (index, value) => {
-    setSelections((prevSelections) => {
-      if (prevSelections[index] === value) {
-        const updatedSelections = { ...prevSelections };
-        delete updatedSelections[index];
-        return updatedSelections;
-      } else {
-        document.documentElement.scrollTo({
-          top: (_get_window_height()/2.9)*index + _get_window_height()/4.8,
-          behavior:'smooth'
-        })
-      }
-      return {
-        ...prevSelections,
-        [index]: value,
-      };
-    });
-  };
-
-  function goToResults() {
-    window.location.hash = "#/results";
-  }
-
-  function toTop() {
-    document.documentElement.scrollIntoView({
-      behavior:'smooth'
-    })
-  }
 
   return (
     <div className="testViewContainer">
@@ -49,13 +18,13 @@ function TestView(props) {
               id={"test-"+index}
               key={question.id}
               text={question.question}
-              onSelect={(value) => handleSelect(index, value)}
-              selectedValue={selections[index]}
+              onSelect={(value) => props.handleSelect(index, value)}
+              selectedValue={props.selections[index]}
           />
         ))}
       </div>
       <div className="flextRowParent">
-        <button className="button_2" onClick={toTop}>
+        <button className="button_2" onClick={props.toTop}>
           <img
             src={Icon1}
             alt="Review Choices"
@@ -72,7 +41,7 @@ function TestView(props) {
           className="button_2"
           onClick={() => {
             callChatGPT();
-            goToResults();
+            props.goToResults();
           }}
         >
           <img

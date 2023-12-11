@@ -1,4 +1,5 @@
 import TestPoint from "../../assets/images/testpoint.png";
+import gotcha from "../../assets/images/gotcha.png";
 
 function TestItem(props) {
   const { text, onSelect, selectedValue } = props;
@@ -12,8 +13,8 @@ function TestItem(props) {
         {options.map((value) => (
           <img
             key={value}
-            className={`point_img ${selectedValue === value ? "selected" : ""}`}
-            src={TestPoint}
+            className="point_img"
+            src={selectedValue === value ? gotcha : TestPoint}
             style={{
               width: `${value <= 4 ? 7 - value : value}vw`,
             }}
