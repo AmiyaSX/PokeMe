@@ -1,11 +1,11 @@
 # PokeMe
-Welcome to PokeMe!
+Welcome to PokéMe!
 
 
 Try it here:
 https://pokeme-dh2642.web.app/
 
-## About PokeMe
+## About PokéMe
 
 An interactive web application designed for Pokémon enthusiasts. The app provides a fun and engaging personality test for finding users the matching Pokemons. Also, the website offers detailed information about each Pokémon. Users can take the test, get their Pokémon match, and explore a database of Pokémon details.
 
