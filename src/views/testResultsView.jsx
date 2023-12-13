@@ -79,19 +79,12 @@ function TestResultsView(props) {
             <img src={Icon2} alt="Save My Result" width={58} height={58} />
             <div style={{ fontSize: "2.5vh" }}>Save My Result!</div>
           </button>
-
-          <div className="dropdownshare">
-              <button className="button_2" onClick={props.toggleDropdown}>
-                  <img src={Icon3} alt="Share" width={58} height={58} />
-                  <div style={{ fontSize: "2.5vh" }}>Share!</div>
-              </button>
-              <div id="myDropdown" className="dropdown-share" style={{ display: 'none' }}>
-                  <a href="#" onClick={props.handleFacebookShare}>Share on Facebook!</a>
-                  <a href="#" onClick={props.handleTwitterShare}>Share on Twitter!</a>
-                  <a href="#" onClick={props.handleLinkedInShare}>Share on LinkedIn!</a>
-              </div>
           </div>
-
+          <div className="flextRowParent">
+          <button className="button_2" onClick={props.handleShare}>
+            <img src={Icon3} alt="Share" width={58} height={58} />
+            <div style={{ fontSize: "2.5vh" }}>Share!</div>
+          </button>
         </div>
       </div>
     </div>
