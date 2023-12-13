@@ -11,6 +11,8 @@ import History from "./historyPresenter";
 import TopBar from "../views/components/topbar";
 import React, { useEffect, useState } from "react";
 import { AuthProvider } from "../model/authContext";
+import promiseNoDataView from "../views/promiseNoData.jsx";
+
 
 export default observer(function ReactRoot(props) {
   const [notOnStartPage, setNotOnStartPage] = useState(window.location.hash!=="");

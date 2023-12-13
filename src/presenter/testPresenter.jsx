@@ -5,6 +5,8 @@ import { saveToFirebase, readFromFirebase } from "../model/firebaseModel.js";
 import "/src/style.css";
 import { observer } from "mobx-react-lite";
 import _get_window_height from "../utilities";
+import promiseNoDataView from "../views/promiseNoData.jsx";
+
 
 export default observer(function Test(props) {
   const { currentUser } = useContext(AuthContext);

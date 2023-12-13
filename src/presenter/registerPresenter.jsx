@@ -3,6 +3,8 @@ import { observer } from "mobx-react-lite";
 import { auth } from "../model/firebaseModel";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import RegisterView from "../views/registerView";
+import promiseNoDataView from "../views/promiseNoData.jsx";
+
 
 const RegisterPresenter = observer(() => {
   const [email, setEmail] = useState("");

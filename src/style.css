@@ -661,3 +661,28 @@ img {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+.dropdownshare {
+  position: relative;
+  display: inline-block; /* This ensures the dropdown is inline with other elements */
+}
+
+.dropdown-share {
+  display: none;
+  position: absolute;
+  left: 0; /* Aligns dropdown with the left edge of the button */
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-share a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-share a:hover {background-color: #f1f1f1}
+

@@ -1,6 +1,8 @@
 // (1) ------------ application state (model) -----------
 import model from "/src/model/PokemeModel.js";
 import connectToFirebase from "/src/model/firebaseModel.js";
+import promiseNoDataView from "../views/promiseNoData.jsx";
+
 // uncomment to make the app update when the model changes:
 import { observable, configure, reaction } from "mobx";
 configure({ enforceActions: "never" }); // we don't use Mobx actions

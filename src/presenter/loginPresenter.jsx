@@ -4,6 +4,8 @@ import { observer } from "mobx-react-lite";
 import { auth } from "../model/firebaseModel";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import LoginView from "../views/loginView";
+import promiseNoDataView from "../views/promiseNoData.jsx";
+
 
 const LoginPresenter = observer(() => {
   const [email, setEmail] = useState("");
