@@ -1,4 +1,4 @@
-# PokeMe
+# PokéMe
 Welcome to PokéMe!
 
 
@@ -50,10 +50,12 @@ An interactive web application designed for Pokémon enthusiasts. The app provid
 │   │   ├── homePresenter.jsx         // Manage the presentation logic for the home view, including API interactions for displaying Pokémon
 │   │   ├── index.jsx                 // The entry point for React components
 │   │   ├── loginPresenter.jsx        // Manage the presentation logic for user login
+│   │   ├── startPresenter.jsx        // Manage the presentation logic for start view
 │   │   ├── registerPresenter.jsx     // Manage the presentation logic for user registration
 │   │   ├── testPresenter.jsx         // Manage the presentation logic for conducting tests
 │   │   └── testResultPresenter.jsx   // Manage the presentation logic for displaying results
 │   ├── style.css           // The main stylesheet for the application, containing global styles and CSS variables
+│   ├── effect.css           // Contains animations and effects
 │   ├── utilities.js        // General utility functions used across the application
 │   └── views               // Contains the main view components that represent entire pages or large parts of pages
 │       ├── components                // Custom components used across different views
@@ -66,6 +68,7 @@ An interactive web application designed for Pokémon enthusiasts. The app provid
 │       ├── historyView.jsx           // The history page view displays user's test history
 │       ├── homeView.jsx              // The home page view displays pokeItems and contains entrance to the test
 │       ├── loginView.jsx             // View components for user login
+│       ├── startView.jsx             // View first shows up when the application starts
 │       ├── promiseNoData.jsx         // View display according to status
 │       ├── registerView.jsx          // View components for user registration
 │       ├── testResultsView.jsx       // Displays the results of the personality test
