@@ -15,7 +15,7 @@ body {
   margin: 0;
 }
 
-h1 {
+.head-title {
   margin: 0;
   font-family: "Montserrat", sans-serif;
   font-size: calc(64px + 10vw + 6vh);
@@ -24,6 +24,7 @@ h1 {
   top: 5vh;
   left: 50%;
   transform: translateX(-50%);
+  text-align: center;
   color: white;
   background: url("assets/images/bg2.jpeg");
   background-size: 36% auto;
@@ -115,10 +116,10 @@ h1 {
 
 .arrow {
   position: relative;
-  width: 3.5vh;
-  height: 3.5vh;
-  border-top: 12px solid #070707;
-  border-right: 12px solid #070707;
+  width: 4vh;
+  height: 4vh;
+  border-top: 10px solid #070707;
+  border-right: 10px solid #070707;
   transform: rotate(45deg);
   animation: arrow-load 2s infinite;
 }

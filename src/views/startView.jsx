@@ -5,7 +5,7 @@ function StartView(props) {
   };
   return (
     <div className="slash">
-      <h1>POKÉME</h1>
+      <div className="head-title">POKÉME</div>
       <div className="text">Take our engaging personality test, discover your perfect Pokémon match with PokéMe...</div>
       <div className="start-container">
           <div className="login-text" onClick={goToLogin}>Journey Begins!</div>

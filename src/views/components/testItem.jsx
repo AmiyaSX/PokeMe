@@ -9,7 +9,7 @@ function TestItem(props) {
     <div className="columnContainer">
       <p className="normalText-test">{text}</p>
       <div className="mainContent">
-        <div className="normalText-test2">Agree</div>
+        <div className="normalText-test2">Disagree</div>
         {options.map((value) => (
           <img
             key={value}
@@ -22,7 +22,7 @@ function TestItem(props) {
             alt="Test Point"
           />
         ))}
-        <div className="normalText-test2">Disagree</div>
+        <div className="normalText-test2">Agree</div>
       </div>
     </div>
   );
