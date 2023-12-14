@@ -18,7 +18,7 @@ body {
 h1 {
   margin: 0;
   font-family: "Montserrat", sans-serif;
-  font-size: 32vh;
+  font-size: calc(64px + 10vw + 6vh);
   letter-spacing: 1vw;
   position: absolute;
   top: 5vh;
@@ -34,6 +34,14 @@ h1 {
   animation: shine 20s linear infinite;
   -moz-animation: shine 20s linear infinite;
   -webkit-animation: shine 20s linear infinite;
+}
+
+@media screen and (max-width: 1200px) {
+  h1 {
+    font-size: calc(32px + 5vw + 3vh);
+    letter-spacing: 0.5vw;
+    background-size: 50% auto;
+  }
 }
 
 .start-container {
@@ -56,6 +64,14 @@ h1 {
   color: rgb(93, 91, 91);
 }
 
+@media screen and (max-width: 800px) {
+  .text {
+    font-size: 2vh;
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+}
+
 .login-text {
   font-family: "Montserrat", sans-serif;
   font-size: 8vh;
@@ -67,6 +83,12 @@ h1 {
   text-align: center;
   cursor: pointer;
   color: rgb(93, 91, 91);
+}
+
+@media screen and (max-width: 800px) {
+  .login-text {
+    font-size: 6vh;
+  }
 }
 
 .login-text:hover {
@@ -82,6 +104,13 @@ h1 {
   cursor: pointer;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width: 800px) {
+  .arrows-body {
+    display: contents;
+    align-items: inherit;
+  }
 }
 
 .arrow {
