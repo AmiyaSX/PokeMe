@@ -40,8 +40,8 @@ function TestView(props) {
         <button
           className="button_2"
           onClick={() => {
-            callChatGPT();
-            props.goToResults();
+            props.handleSubmitTest();
+            // props.goToResults();
           }}
         >
           <img

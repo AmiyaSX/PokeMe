@@ -12,64 +12,47 @@ function TestResultsView(props) {
   const [species, setSpecies] = useState(null);
 
   useEffect(() => {
-    const fetchPokemonData = async () => {
-      const pokemonData = await getPokemonDetails("pikachu"); // Change to dynamic Pokemon based on test
-      setPokemon(pokemonData);
+    if (props.testResult && props.testResult.pokemon) {
+      const fetchPokemonData = async () => {
+        try {
+          const pokemonData = await getPokemonDetails(props.testResult.pokemon.toLowerCase());
+          setPokemon(pokemonData);
 
-      const speciesData = await getPokemonSpecies("pikachu"); // Change to dynamic species based on test
-      setSpecies(speciesData);
-    };
+          const speciesData = await getPokemonSpecies(props.testResult.pokemon.toLowerCase());
+          setSpecies(speciesData);
+        } catch (error) {
+          console.error("Error fetching Pokémon data:", error);
+        }
+      };
 
-    fetchPokemonData();
-  }, []);
-
-  const pokemonImageURL = pokemon
-    ? `https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`
-    : "";
+      fetchPokemonData();
+    }
+  }, [props.testResult]);
 
   return (
     <div>
       <Banner text="Your Pokemon is here!" />
       <div className="columnContainer">
-        {pokemon ? (
-          <PokeItem
-            key={pokemon.id}
-            name={pokemon.name}
-            image={pokemonImageURL}
-          />
-        ) : (
-          <p>Loading...</p>
-        )}
-        <div className="textBox">
-          <div className="introText">
-            {pokemon && species ? (
-              <div>
-                <p>Name: {pokemon.name}</p>
+        {pokemon && species ? (
+          <>
+            <PokeItem
+              name={pokemon.name}
+              image={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`}
+            />
+            <div className="textBox">
+              <div className="introText">
+                <p>Reason: {props.testResult.reason}</p>
                 <p>Height: {pokemon.height * 10} cm</p>
                 <p>Weight: {pokemon.weight / 10} kg</p>
-                <p>
-                  Type: {pokemon.types.map((type) => type.type.name).join(", ")}
-                </p>
-                <p>
-                  Abilities:{" "}
-                  {pokemon.abilities
-                    .map((ability) => ability.ability.name)
-                    .join(", ")}
-                </p>
-                <p>
-                  Fact:{" "}
-                  {
-                    species.flavor_text_entries.find(
-                      (entry) => entry.language.name === "en"
-                    ).flavor_text
-                  }
-                </p>
+                <p>Type: {pokemon.types.map((type) => type.type.name).join(", ")}</p>
+                <p>Abilities: {pokemon.abilities.map((ability) => ability.ability.name).join(", ")}</p>
+                <p>Fact: {species.flavor_text_entries.find((entry) => entry.language.name === "en").flavor_text}</p>
               </div>
-            ) : (
-              "Loading Pokémon details..."
-            )}
-          </div>
-        </div>
+            </div>
+          </>
+        ) : (
+          <p>Loading Pokémon details...</p>
+        )}
         <div className="flextRowParent">
           <button className="button_2" onClick={props.handleTryAgain}>
             <img src={Icon1} alt="Try Again" width={58} height={58} />
@@ -79,8 +62,8 @@ function TestResultsView(props) {
             <img src={Icon2} alt="Save My Result" width={58} height={58} />
             <div style={{ fontSize: "2.5vh" }}>Save My Result!</div>
           </button>
-          </div>
-          <div className="flextRowParent">
+        </div>
+        <div className="flextRowParent">
           <button className="button_2" onClick={props.handleShare}>
             <img src={Icon3} alt="Share" width={58} height={58} />
             <div style={{ fontSize: "2.5vh" }}>Share!</div>
