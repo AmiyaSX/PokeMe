@@ -109,12 +109,15 @@ body {
 
 @media screen and (max-width: 800px) {
   .arrows-body {
-    display: contents;
-    align-items: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
 }
 
 .arrow {
+  margin: 0 5px;
   position: relative;
   width: 4vh;
   height: 4vh;
