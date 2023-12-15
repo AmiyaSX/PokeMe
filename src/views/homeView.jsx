@@ -20,7 +20,7 @@ function HomeView(props) {
 
   return (
       <div>
-      <Banner text="Pokemon Personality Test" />
+      <Banner text="Pokemon Personality Test" className="banner-text" />
       <div className="gridContainer">
         {pokemons.map((pokemon, index) => (
           <PokeItem

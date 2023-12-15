@@ -159,6 +159,21 @@ h1 {
   width: 100%;
   background-image: url("assets/images/banner.jpg");
   background-repeat: repeat-x;
+  white-space: nowrap;
+}
+
+.banner-text {
+  font-size: calc(16px + 1vw);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 800px) {
+  .banner-text {
+    font-size: calc(14px + 1vw);
+    padding: 10px;
+  }
 }
 
 .topbar {
