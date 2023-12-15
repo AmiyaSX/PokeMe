@@ -249,17 +249,37 @@ h1 {
         font-size: xx-small;
     }
 
-    .flexParent, .flextRowParent{
+    .flexParent{
         gap: 5px;
+    }
+
+    .flextRowParent {
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
     }
 
     .card {
         width: 70%;
     }
 
-    .button_1, .button_2, .float-button, .back-button, .dropdown-share {
+    .button_1, .float-button, .back-button, .dropdown-share {
         font-size: 4vw;
         padding: 15px;
+    }
+
+    .button_2 {
+      font-size: 5vh;
+      width: 60vw;
+      height: 10vh;
+      padding: 15px;
+      margin: 10px 0;
+      max-width: none;
+    }
+  
+    .button_2 img {
+      max-width: 8vw;
+      max-height: 8vh;
     }
 
     .normalText, .normalText-test, .introText, .date, .iconText, .titleText {
@@ -586,7 +606,8 @@ img {
 
 .button_2 {
   display: flex;
-  place-items: center;
+  align-items: center;
+  justify-content: center;
   border-radius: 20px;
   height: 9vh;
   width: 18vw;
@@ -599,6 +620,7 @@ img {
   font-size: 28px;
   cursor: pointer;
   background-color: #373d7f;
+  text-align: center;
 }
 
 .button_2:hover {
