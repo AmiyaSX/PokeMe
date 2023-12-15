@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getDatabase, ref, get, set, onValue } from "firebase/database";
+import { getDatabase, ref, get, set, push, onValue } from "firebase/database";
 import firebaseConfig from "./firebaseConfig.js";
 import { configure } from "mobx";
 configure({ enforceActions: "never" }); // we don't use Mobx actions
@@ -38,6 +38,37 @@ function readFromFirebase(userId, callback) {
     });
 }
 
+function saveResultToHistory(userId, testResult) {
+  const historyRef = ref(db, `history/${userId}`);
+
+  const newHistoryRef = push(historyRef);
+
+  const timestamp = new Date().toISOString(); 
+  const historyEntry = {
+    ...testResult,
+    date: timestamp,
+  };
+
+  return set(newHistoryRef, historyEntry)
+    .then(() => console.log("Result saved to history successfully"))
+    .catch((error) => console.error("Failed to save result to history:", error));
+}
+
+function readHistoryFromFirebase(userId, callback) {
+  get(ref(db, `history/${userId}`))
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        const historyData = Object.values(snapshot.val());
+        callback(historyData);
+      } else {
+        console.log("No history data available");
+      }
+    })
+    .catch((error) => {
+      console.error("Failed to retrieve history:", error);
+    });
+}
+
 function connectToFirebase(model, watchFunction) {
   function checkACB() {
     console.log("checking");
@@ -55,6 +86,8 @@ export {
   persistenceToModel,
   saveToFirebase,
   readFromFirebase,
+  readHistoryFromFirebase,
+  saveResultToHistory,
 };
 
 export default connectToFirebase;

@@ -6,7 +6,7 @@ export const callChatGPT = async (formattedResponses) => {
   console.log(requestPrompt);
 
   let openai = new OpenAI({
-    apiKey: "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",
+    apiKey: "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",
     dangerouslyAllowBrowser: true,
   });
 

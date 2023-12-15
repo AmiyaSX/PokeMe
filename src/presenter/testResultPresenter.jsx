@@ -3,6 +3,7 @@ import { callChatGPT } from "../model/openai/GetPersonalityMatch";
 import { useLocation } from 'react-router-dom'; //
 import { AuthContext } from "../model/authContext";
 import TestResultsView from "../views/testResultsView";
+import { saveResultToHistory } from "../model/firebaseModel";
 import { observer } from "mobx-react-lite";
 
 
@@ -28,13 +29,20 @@ observer(             // needed for the presenter to update (its view) when rele
               })
             console.log("Try Again clicked");
         };
+  
  
         const handleSaveResult = () => {
             if (testResult) {
-              saveResultToHistory(currentUser.uid, testResult);
-              console.log("Saved to history:", testResult);
+              saveResultToHistory(currentUser.uid, testResult)
+                .then(() => {
+                  console.log("Saved to history:", testResult);
+                })
+                .catch((error) => {
+                  console.error("Error saving to history:", error);
+                });
             }
-        };
+          };
+          
     
         const handleShare = () => {
             window.open(

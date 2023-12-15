@@ -44,32 +44,22 @@ export default observer(function Test(props) {
       })
       .join('\n');
   };
-  
+
   const handleSubmitTest = async () => {
     const formattedResponses = formatResponsesForOpenAI();
-    callChatGPT(formattedResponses)
-      .then(parsedResponse => {
-        setOpenAIResponse(parsedResponse); // Set state with parsed response
-        navigate('/results', { state: { openAIResponse: parsedResponse } }); // Navigate with state
-      })
-      .catch(error => {
-        console.error("Error in submitting test:", error);
-      });
+    try {
+      const parsedResponse = await callChatGPT(formattedResponses);
+      setOpenAIResponse(parsedResponse);
+      setSelections({}); 
+  
+      await saveToFirebase(currentUser.uid, {}); 
+      console.log("Test process cleared");
+  
+      navigate('/results', { state: { openAIResponse: parsedResponse } });
+    } catch (error) {
+      console.error("Error in submitting test:", error);
+    }
   };
-  
-
-  // const handleOpenAIResponse = (response) => {
-  //   if (response && response.choices && response.choices.length > 0) {
-  //     const message = response.choices[0].message;
-  //     if (typeof message === 'string') {
-  //       const parsedResponse = JSON.parse(message);
-  //       console.log('Parsed response11:', parsedResponse);
-  //       setOpenAIResponse(parsedResponse);
-  //       navigate('/results', { state: { openAIResponse: parsedResponse } });
-  //     }
-  //   }
-  // };
-  
 
   function goToResults() {
     window.location.hash = "#/results";
@@ -105,7 +95,6 @@ export default observer(function Test(props) {
     return <TestView
             handleSelect={handleSelect}
             formatResponses={formatResponsesForOpenAI}
-            // handleOpenAIResponse={handleOpenAIResponse}
             openAIResponse={openAIResponse}
             handleSubmitTest={handleSubmitTest}
             goToResults={goToResults}

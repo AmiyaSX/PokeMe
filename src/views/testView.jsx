@@ -41,7 +41,6 @@ function TestView(props) {
           className="button_2"
           onClick={() => {
             props.handleSubmitTest();
-            // props.goToResults();
           }}
         >
           <img
