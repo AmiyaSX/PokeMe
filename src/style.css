@@ -366,6 +366,13 @@ img {
   transform: translateY(4vh);
 }
 
+.container-right {
+  display: flex;
+  justify-content: right;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 .topbarIcon {
   display: flex;
   justify-content: left;
@@ -398,8 +405,22 @@ img {
   font-size: 1.4rem;
   display: -webkit-box;
   -webkit-box-orient: block-axis;
-  /* -webkit-line-clamp: 1; */
   width: fit-content;
+  height: inherit;
+  color: #373d7f;
+  align-self: center;
+  justify-content: center;
+  text-align: center;
+  flex: 0 1 8vw;
+}
+
+.center-text {
+  font-size: 1.8rem;
+  display: -webkit-box;
+  -webkit-box-orient: block-axis;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
   height: inherit;
   color: #373d7f;
   align-self: center;
@@ -628,15 +649,14 @@ img {
 }
 
 .itemButton {
-  background-color: #e1e1e100;
+  background-color: #f7cc2e;
   color: #3c444d;
-  border: none;
   padding: 5px 10px;
-  text-align: center;
+  justify-content: center;
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-bottom: 8px;
+  margin-right: 10vw;
+  font-size: 2vw;
+  margin-bottom: 4vh;
   cursor: pointer;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -644,7 +664,7 @@ img {
 }
 
 .itemButton:hover {
-  background-color: #39393975;
+  background-color: #393939e3;
   color: white;
 }
 
