@@ -3,6 +3,7 @@ import { observer } from "mobx-react-lite";
 import { auth } from "../model/firebaseModel";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import RegisterView from "../views/registerView";
+import Alert from "../views/components/alert.jsx";
 import promiseNoDataView from "../views/promiseNoData.jsx";
 
 
@@ -11,8 +12,9 @@ const RegisterPresenter = observer(() => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [isRegistered, setIsRegistered] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+
 
   const formatErrorMessage = (error) => {
     switch (error.code) {
@@ -34,36 +36,36 @@ const RegisterPresenter = observer(() => {
       setError("Passwords do not match.");
       return;
     }
-    setIsLoading(true);
+    setIsProcessing(true);
     try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      console.log("Registered user:", userCredential.user);
-      setIsRegistered(true);
+      await createUserWithEmailAndPassword(auth, email, password);
+      setShowAlert(true); 
       setTimeout(() => {
         window.location.hash = "#/login";
-      }, 1500);
+      }, 2500);
     } catch (error) {
       setError(formatErrorMessage(error));
-      setIsRegistered(false);
     } finally {
-      setIsLoading(false);
+      setIsProcessing(false);
     }
   };
 
   return (
-    <RegisterView
+    <>
+      {showAlert && (
+        <Alert 
+          message="Registration successful! Redirecting to login..." 
+        />
+      )}
+      <RegisterView
       setEmail={setEmail}
       setPassword={setPassword}
       setConfirmPassword={setConfirmPassword}
       handleRegister={handleRegister}
       error={error}
-      isLoading={isLoading}
-      isRegistered={isRegistered}
+      isProcessing={isProcessing}
     />
+    </>
   );
 });
 

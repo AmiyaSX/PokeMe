@@ -9,7 +9,6 @@ function RegisterView(props){
         <div className="">
             <Banner text="Join and Try!"/>
             <div>
-
                 <div className="input-group">
                     <label htmlFor="email" className="input-label">Email</label>
                     <InputForm 
@@ -37,12 +36,13 @@ function RegisterView(props){
                     />
                 </div>
 
-                {props.isLoading && (
+                {props.isProcessing && (
                     <div className="loading-message">
-                        {props.isRegistered ? "Register successful! Loading the Login page..." : "Processing..."}
                         <img src={LoadingIcon} alt="Loading" />
+                        Processing...
                     </div>
                 )}
+
                 {props.error && (
                     <div className="error-message">
                         <img 
@@ -53,6 +53,7 @@ function RegisterView(props){
                         {props.error}
                     </div>
                 )}
+                
                 <div className='gap'/>
                 <div className="flextRowParent">
                     <button className="button_1" onClick={props.handleRegister}>Register</button>
