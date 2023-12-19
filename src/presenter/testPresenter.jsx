@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from "../model/authContext.jsx";
+import Alert from "../views/components/alert.jsx";
 import TestView from "../views/testView.jsx";
 import questions from "../model/questions";
 import { saveToFirebase, readFromFirebase } from "../model/firebaseModel.js";
@@ -16,6 +17,8 @@ export default observer(function Test(props) {
   const { currentUser } = useContext(AuthContext);
   const [selections, setSelections] = useState({});
   const [openAIResponse, setOpenAIResponse] = useState(null);
+  const [alertMessage, setAlertMessage] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
   const navigate = useNavigate(); 
   const questionRefs = useRef(questions.map(() => React.createRef()));
 
@@ -47,21 +50,38 @@ export default observer(function Test(props) {
   };
 
   const handleSubmitTest = async () => {
+    const unansweredIndex = questions.findIndex((_, index) => !selections[index]);
+    
+    if (unansweredIndex !== -1) {
+      questionRefs.current[unansweredIndex].current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+      setAlertMessage('Please answer all questions before submitting.');
+      setShowAlert(true);
+      setTimeout(() => setShowAlert(false), 2000); 
+      return; 
+    }
+    
+    setAlertMessage('Submitting your answers, please wait for the result...');
+    setShowAlert(true);
+    setTimeout(() => setShowAlert(false), 3000); 
+    
     const formattedResponses = formatResponsesForOpenAI();
     try {
       const parsedResponse = await callChatGPT(formattedResponses);
       setOpenAIResponse(parsedResponse);
-      setSelections({}); 
-  
-      await saveToFirebase(currentUser.uid, {}); 
-      console.log("Test process cleared");
-  
+      setSelections({});
+      await saveToFirebase(currentUser.uid, {});
       navigate('/results', { state: { openAIResponse: parsedResponse } });
     } catch (error) {
       console.error("Error in submitting test:", error);
+      setAlertMessage('Error during submission, please try again.');
+      setShowAlert(true);
+      setTimeout(() => setShowAlert(false), 2000); 
     }
   };
-
+  
   function goToResults() {
     window.location.hash = "#/results";
   }
@@ -102,7 +122,10 @@ export default observer(function Test(props) {
 
   questionRefs.current = questions.map((_, i) => questionRefs.current[i] ?? React.createRef());
 
-    return <TestView
+  return (
+    <>
+      {showAlert && <Alert message={alertMessage} />}
+      <TestView
             handleSelect={handleSelect}
             formatResponses={formatResponsesForOpenAI}
             openAIResponse={openAIResponse}
@@ -111,6 +134,8 @@ export default observer(function Test(props) {
             toTop={toTop}
             selections={selections}
             questionRefs={questionRefs}
-            />;
+        />;
+    </>
+  );
   }
 );
