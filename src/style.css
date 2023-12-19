@@ -192,9 +192,9 @@ h1 {
 .mainContent {
   display: flex;
   width: 100%;
-  gap: 2%;
+  gap: 20px;
   margin-left: 2%;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   justify-content: space-around;
   place-items: center;
   max-width: 60vw;
@@ -231,6 +231,19 @@ h1 {
   width: 100%;
   padding: 30px;
 }
+
+.questionContainer {
+  max-width: 60%; 
+  margin: 20px auto; 
+  padding: 0 20px; 
+}
+
+.separator-line {
+  border: none;
+  border-top: 1px solid #e0e0e0; 
+  margin: 20px auto; 
+}
+
 
 .gap {
   width: 100%;
@@ -434,7 +447,8 @@ img {
 }
 
 .normalText-test {
-  font-size: 2.2rem;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
   color: #373d7f;
   align-self: center;
   text-align-last: center;
@@ -442,7 +456,7 @@ img {
 }
 
 .normalText-test2 {
-  font-size: 2.2rem;
+  font-size: 1.2rem;
   color: #373d7f;
   align-self: center;
   text-align-last: center;
@@ -827,5 +841,9 @@ img {
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity: 1;}
+}
+
+.answered {
+  opacity: 0.5; 
 }
 

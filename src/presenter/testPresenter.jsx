@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from "../model/authContext.jsx";
 import TestView from "../views/testView.jsx";
@@ -17,6 +17,7 @@ export default observer(function Test(props) {
   const [selections, setSelections] = useState({});
   const [openAIResponse, setOpenAIResponse] = useState(null);
   const navigate = useNavigate(); 
+  const questionRefs = useRef(questions.map(() => React.createRef()));
 
   useEffect(() => {
     if (currentUser) {
@@ -72,25 +73,34 @@ export default observer(function Test(props) {
   }
 
   const handleSelect = (index, value) => {
-      setSelections((prevSelections) => {
-        if (prevSelections[index] === value) {
-          const updatedSelections = { ...prevSelections };
-          delete updatedSelections[index];
-          return updatedSelections;
-        } else {
-          document.documentElement.scrollTo({
-            top: (_get_window_height()/2.9)*index + _get_window_height()/4.8,
-            behavior:'smooth'
-          })
+    setSelections((prevSelections) => {
+      const updatedSelections = { ...prevSelections };
+      if (updatedSelections[index] === value) {
+        delete updatedSelections[index]; 
+      } else {
+        updatedSelections[index] = value; 
+      }
+  
+      saveToFirebase(currentUser.uid, updatedSelections);
+  
+      setTimeout(() => {
+        const nextQuestionIndex = Object.keys(updatedSelections).length;
+        if (nextQuestionIndex < questions.length && questionRefs.current[nextQuestionIndex]) {
+          const nextQuestionEl = questionRefs.current[nextQuestionIndex].current;
+          if (nextQuestionEl) {
+            nextQuestionEl.scrollIntoView({
+              behavior: 'smooth',
+              block: 'center',
+            });
+          }
         }
-        return {
-          ...prevSelections,
-          [index]: value,
-        };
-      });
-      saveToFirebase(currentUser.uid, selections);
-  };
+      }, 0);
+  
+      return updatedSelections;
+    });
+  };  
 
+  questionRefs.current = questions.map((_, i) => questionRefs.current[i] ?? React.createRef());
 
     return <TestView
             handleSelect={handleSelect}
@@ -100,6 +110,7 @@ export default observer(function Test(props) {
             goToResults={goToResults}
             toTop={toTop}
             selections={selections}
+            questionRefs={questionRefs}
             />;
   }
 );

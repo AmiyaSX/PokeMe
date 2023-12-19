@@ -12,16 +12,22 @@ function TestView(props) {
   return (
     <div className="testViewContainer">
       <Banner text="Test" />
-      <div className="columnContainer">
-        {questions.map((question, index) => (
-            <TestItem
-              id={"test-"+index}
-              key={question.id}
-              text={question.question}
-              onSelect={(value) => props.handleSelect(index, value)}
-              selectedValue={props.selections[index]}
-          />
-        ))}
+      <div className="questionContainer">
+        {questions.map((question, index) => {
+          const isAnswered = props.selections[index] != null;
+          return (
+            <div key={question.id} ref={props.questionRefs.current[index]}>
+              <TestItem
+                id={"test-" + index}
+                text={question.question}
+                onSelect={(value) => props.handleSelect(index, value)}
+                selectedValue={props.selections[index]}
+                isAnswered={isAnswered}
+              />
+              {index !== questions.length - 1 && <hr className="separator-line" />}
+            </div>
+          );
+        })}
       </div>
       <div className="flextRowParent">
         <button className="button_2" onClick={props.toTop}>
