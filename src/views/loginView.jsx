@@ -9,7 +9,7 @@ function LoginView(props) {
       <Banner text="Login to Test!" />
 
       <div className="input-group">
-        <label htmlFor="email" className="input-label">Email:</label>
+        <label htmlFor="email" className="input-label">Email</label>
         <InputForm
           id="email"
           type="text"
@@ -18,7 +18,7 @@ function LoginView(props) {
       </div>
 
       <div className="input-group">
-        <label htmlFor="password" className="input-label">Password:</label>
+        <label htmlFor="password" className="input-label">Password</label>
         <InputForm
           id="password"
           type="password"

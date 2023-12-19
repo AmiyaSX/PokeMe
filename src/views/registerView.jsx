@@ -9,21 +9,34 @@ function RegisterView(props){
         <div className="">
             <Banner text="Join and Try!"/>
             <div>
-                <InputForm 
-                    text="Email: " 
-                    type="text" 
-                    onChange={(e) => props.setEmail(e.target.value)} 
-                />
-                <InputForm 
-                    text="Password: " 
-                    type="password" 
-                    onChange={(e) => props.setPassword(e.target.value)} 
-                />
-                <InputForm 
-                    text="Confirm password: " 
-                    type="password" 
-                    onChange={(e) => props.setConfirmPassword(e.target.value)} 
-                />
+
+                <div className="input-group">
+                    <label htmlFor="email" className="input-label">Email</label>
+                    <InputForm 
+                        id="email"
+                        type="text" 
+                        onChange={(e) => props.setEmail(e.target.value)} 
+                    />
+                </div>
+
+                <div className="input-group">
+                    <label htmlFor="password" className="input-label">Password</label>
+                    <InputForm
+                        id="password"
+                        type="password"
+                        onChange={(e) => props.setPassword(e.target.value)}
+                    />
+                </div>
+
+                <div className="input-group">
+                    <label htmlFor="confirm-password" className="input-label">Confirm Password</label>
+                    <InputForm
+                        id="confirm-password"
+                        type="password"
+                        onChange={(e) => props.setConfirmPassword(e.target.value)} 
+                    />
+                </div>
+
                 {props.isLoading && (
                     <div className="loading-message">
                         {props.isRegistered ? "Register successful! Loading the Login page..." : "Processing..."}
