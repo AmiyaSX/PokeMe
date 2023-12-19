@@ -58,5 +58,7 @@ export default defineConfig({
   build: {
     target: "esnext", // javascript version to target: latest
     chunkSizeWarningLimit: 600,
+    sourcemap: true,
+    minify: false
   },
 });
