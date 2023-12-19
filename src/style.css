@@ -200,14 +200,16 @@ h1 {
   max-width: 60vw;
 }
 
+
 .history {
   display: flex;
+  align-items: center;
   width: 100%;
   gap: 2%;
   margin-left: 3%;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   margin-top: 50px;
-  justify-content: space-around;
+  justify-content: space-between;
   place-items: center;
 }
 
@@ -284,13 +286,13 @@ h1 {
       max-height: 8vh;
     }
 
-    .normalText, .normalText-test, .introText, .date, .iconText, .titleText {
+    .normalText, .normalText-test, .introText, .introText-history, .date, .iconText, .titleText {
         font-size: 4vw; 
     }
 
     .textBox, .textBox-history {
-        padding: 10px;
-        width: 90%;
+        padding: 30px;
+        width: 80%;
     }
 
     .login-button {
@@ -457,29 +459,33 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 20px;
   padding: 30px;
   width: 60%;
   border-radius: 30px;
   text-align: justify;
   line-height: 38px;
   margin-bottom: 40px;
-  background-color: #373d7f;
+  background-color: #373d7fda;
 }
 
 .textBox-history {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding: 20px;
+  background-color: #f9d552af; 
+  color: #373d7f; 
+  font-size: 1rem;
+  line-height: 1.5;
   text-align: justify;
-  width: 64%;
-  border-radius: 30px;
-  line-height: 38px;
-  margin-bottom: 40px;
-  background-color: #373d7f;
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  margin: 10px auto; 
+  max-width: 65%; 
+  border: 1px solid #ddd; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
 }
+
 
 @media screen and (max-width: 768px) {
   .textBox,
@@ -490,7 +496,7 @@ img {
 }
 
 .iconText {
-  font-size: 2rem;
+  font-size: 1.9rem;
   color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -498,12 +504,19 @@ img {
 }
 
 .introText {
-  font-size: 2rem;
+  padding: 10px;
+  font-size: 1.3rem;
   color: #ffffff;
 }
 
+.introText-history {
+  padding: 10px;
+  font-size: 1rem;
+  color: #373d7f;
+}
+
 .date {
-  font-size: 3vh;
+  font-size: 2vh;
   color: #373d7f;
   align-self: center;
   text-align-last: center;
@@ -527,6 +540,7 @@ img {
   .normalText,
   .normalText-test,
   .introText,
+  .introText-history,
   .date,
   .titleText {
     font-size: smaller; 
@@ -661,11 +675,12 @@ img {
 .itemButton {
   background-color: #f7cc2e;
   color: #3c444d;
-  padding: 5px 10px;
+  padding: 15px;
+  border: none;
   justify-content: center;
   text-decoration: none;
   margin-right: 10vw;
-  font-size: 2vw;
+  font-size: 1.5vw;
   margin-bottom: 4vh;
   cursor: pointer;
   border-radius: 10px;

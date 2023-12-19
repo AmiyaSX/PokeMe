@@ -3,7 +3,7 @@ function HistoryItem(props){
             <div className="history">
                 <img className="img_3" src={props.image} alt=""></img>
                 <div className="textBox-history">
-                    <div className="introText">
+                    <div className="introText-history">
                         {props.intro}
                     </div>
                 </div>
