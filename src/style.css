@@ -821,7 +821,7 @@ img {
   left: 50%; 
   transform: translate(-50%, -50%); 
   padding: 20px;
-  background: rgba(55, 61, 127, 0.837);
+  background: rgba(255, 255, 255, 0.943);
   border-radius: 5px;
   text-align: center;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -833,7 +833,7 @@ img {
 }
 
 .modal-content p {
-  color: white;
+  color: #373d7f;
   font-size: 1rem; 
   margin: 15px; 
 }
@@ -846,4 +846,3 @@ img {
 .answered {
   opacity: 0.5; 
 }
-

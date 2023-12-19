@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import Alert from "../views/components/alert.jsx";
 import { callChatGPT } from "../model/openai/GetPersonalityMatch";
 import { useLocation } from 'react-router-dom'; //
 import { AuthContext } from "../model/authContext";
@@ -13,7 +14,10 @@ observer(             // needed for the presenter to update (its view) when rele
         const location = useLocation();
         const { openAIResponse } = location.state || {};
         const { currentUser } = useContext(AuthContext);
-        const [testResult, setTestResult] = useState(null);  // Use destructuring to get openAIResponse from state
+        const [testResult, setTestResult] = useState(null); 
+        const [alertMessage, setAlertMessage] = useState("");
+        const [showAlert, setShowAlert] = useState(false);
+
         
         useEffect(() => {
             if (openAIResponse) {
@@ -32,17 +36,28 @@ observer(             // needed for the presenter to update (its view) when rele
   
  
         const handleSaveResult = () => {
-            if (testResult) {
-              saveResultToHistory(currentUser.uid, testResult)
-                .then(() => {
-                  console.log("Saved to history:", testResult);
-                })
-                .catch((error) => {
-                  console.error("Error saving to history:", error);
-                });
-            }
-          };
-          
+          if (testResult && currentUser) {
+            saveResultToHistory(currentUser.uid, testResult)
+              .then(() => {
+                console.log("Saved to history:", testResult);
+                setAlertMessage("Your result has been saved successfully!");
+                setShowAlert(true);
+                setTimeout(() => {
+                  setShowAlert(false);
+                }, 2000); 
+              })
+              .catch((error) => {
+                console.error("Error saving to history:", error);
+                setAlertMessage("Error saving result. Please try again.");
+                setShowAlert(true);
+                setTimeout(() => {
+                  setShowAlert(false);
+                }, 2000);
+              });
+          }
+        };
+        
+      
     
         const handleShare = () => {
             window.open(
@@ -51,11 +66,16 @@ observer(             // needed for the presenter to update (its view) when rele
             "_blank"
             );
         };
-        return <TestResultsView 
-                handleTryAgain={handleTryAgain} 
-                handleSaveResult={handleSaveResult} 
-                testResult={testResult}
-                handleShare={handleShare} 
-               />;
-    }
-);
+
+        return (
+          <>
+            {showAlert && <Alert message={alertMessage} />}
+            <TestResultsView 
+              handleTryAgain={handleTryAgain} 
+              handleSaveResult={handleSaveResult} 
+              testResult={testResult}
+              handleShare={handleShare} 
+            />
+          </>
+        );
+      });
