@@ -33,7 +33,7 @@ function TestResultsView(props) {
   return (
     <div>
       <Banner text="Your Pokemon is here!" />
-      <div className="columnContainer">
+      <div className="columnContainer_1">
         {pokemon && species ? (
           <>
             <Image

@@ -232,6 +232,17 @@ h1 {
   padding: 30px;
 }
 
+.columnContainer_1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  place-items: left;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0px;
+}
+
 .questionContainer {
   max-width: 60%; 
   margin: 20px auto; 
@@ -475,12 +486,14 @@ img {
   margin-right: auto;
   margin-top: 20px;
   padding: 30px;
-  width: 60%;
+  padding-top: 10px;
+  width: 80%;
   border-radius: 30px;
   text-align: justify;
   line-height: 38px;
   margin-bottom: 40px;
   background-color: #373d7fda;
+  font-weight: 100; 
 }
 
 .textBox-history {
@@ -519,7 +532,7 @@ img {
 
 .introText {
   padding: 10px;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: #ffffff;
 }
 
@@ -855,4 +868,5 @@ img {
 .pokemonName {
   text-align: center;
   font-size: larger;
+  margin-bottom: 5px;
 }

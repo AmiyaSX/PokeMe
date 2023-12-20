@@ -29,7 +29,7 @@ function PokemonDetailsView() {
   return (
     <div>
       <Banner text={name} />
-      <div className="columnContainer">
+      <div className="columnContainer_1">
         {pokemon ? (
           <Image
           borderRadius='full'
