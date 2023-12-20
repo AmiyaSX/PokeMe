@@ -10,7 +10,7 @@ import "/src/style.css";
 function TestView(props) {
 
   return (
-    <div className="testViewContainer">
+    <div>
       <Banner text="Test" />
       <div className="questionContainer">
         {questions.map((question, index) => {

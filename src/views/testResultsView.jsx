@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getPokemonDetails, getPokemonSpecies } from "../model/pokemonService";
 import Banner from "./components/banner";
 import PokeItem from "./components/pokeItem";
+import { Image } from '@chakra-ui/react'
 import Icon1 from "../assets/images/icon_1.png";
 import Icon2 from "../assets/images/icon_2.png";
 import Icon3 from "../assets/images/insignia.png";
@@ -35,9 +36,11 @@ function TestResultsView(props) {
       <div className="columnContainer">
         {pokemon && species ? (
           <>
-            <PokeItem
-              name={pokemon.name}
-              image={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`}
+            <Image
+            borderRadius='full'
+            boxSize='200px'
+            src={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`}
+            alt={pokemon.name}
             />
             <div className="textBox">
               <div className="introText">

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getPokemonDetails, getPokemonSpecies } from '../model/pokemonService';
 import Banner from './components/banner';
-import PokeItem from './components/pokeItem';
+// import PokeItem from './components/pokeItem';
+import { Image } from '@chakra-ui/react'
 
 function PokemonDetailsView() {
   const { name } = useParams();
@@ -30,10 +31,11 @@ function PokemonDetailsView() {
       <Banner text={name} />
       <div className="columnContainer">
         {pokemon ? (
-          <PokeItem
-            key={pokemon.id}
-            name={pokemon.name}
-            image={pokemonImageURL}
+          <Image
+          borderRadius='full'
+          boxSize='200px'
+          src={pokemonImageURL}
+          alt={pokemon.name}
           />
         ) : (
           <p>Loading...</p>

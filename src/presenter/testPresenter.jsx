@@ -108,10 +108,10 @@ export default observer(function Test(props) {
         if (nextQuestionIndex < questions.length && questionRefs.current[nextQuestionIndex]) {
           const nextQuestionEl = questionRefs.current[nextQuestionIndex].current;
           if (nextQuestionEl) {
-            nextQuestionEl.scrollIntoView({
-              behavior: 'smooth',
-              block: 'center',
-            });
+            // nextQuestionEl.scrollIntoView({
+            //   behavior: 'smooth',
+            //   block: 'center',
+            // });
           }
         }
       }, 0);
