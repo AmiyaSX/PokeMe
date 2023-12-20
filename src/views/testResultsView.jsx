@@ -44,6 +44,7 @@ function TestResultsView(props) {
             />
             <div className="textBox">
               <div className="introText">
+                <p className="pokemonName">{pokemon.name.toUpperCase()}</p>
                 <p>Reason: {props.testResult.reason}</p>
                 <p>Height: {pokemon.height * 10} cm</p>
                 <p>Weight: {pokemon.weight / 10} kg</p>

@@ -18,8 +18,10 @@ const HistoryView = ({ history, formatDate, goToTest, goHome }) => {
             <HistoryItem
               key={index}
               image={`https://img.pokemondb.net/artwork/large/${item.pokemon.toLowerCase()}.jpg`}
-              intro={`Reason: ${item.reason}`}
+              name={`${item.pokemon.toUpperCase()}`}
+              intro={`${item.reason}`}
               date={formatDate(item.date)} 
+              goToPokemonInfo={() => props.goToPokemonInfo(pokemon.name)}
             />
           );
         })}

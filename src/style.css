@@ -632,7 +632,12 @@ img {
   margin-left: auto;
   margin-right: auto;
   align-self: center;
-  margin-bottom: 20px;
+  margin-bottom: 20px;  
+  cursor: pointer;
+}
+
+.img_3:hover {
+  transform: scale(1.05);
 }
 
 .point_img {
@@ -845,4 +850,9 @@ img {
 
 .answered {
   opacity: 0.5; 
+}
+
+.pokemonName {
+  text-align: center;
+  font-size: larger;
 }
