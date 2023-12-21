@@ -40,19 +40,23 @@ function HomeView(props) {
       <div>
       <Banner text="Pokemon Personality Test" className="banner-text" />
       <div className="center-text">Let's revisit some familiar Pokémon characters!</div>
-      <div className="gridContainer">
-        {loading?
-          <img src={"https://i.gifer.com/XOsX.gif"}></img>
-         : pokemons.map((pokemon, index) => (
-            <PokeItem
-              key={index}
-              name={pokemon.name}
-              goToPokemonInfo={() => props.goToPokemonInfo(pokemon.name)}
-              image={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`}
-            />
-          ))
-        }
-      </div>
+    {
+      loading?
+      <div className="center-text">
+        <img src={"https://media.giphy.com/media/zkMri4yiJ3Mdy/giphy.gif"}></img>
+      </div> 
+      : <div className="gridContainer">
+      { pokemons.map((pokemon, index) => (
+          <PokeItem
+            key={index}
+            name={pokemon.name}
+            goToPokemonInfo={() => props.goToPokemonInfo(pokemon.name)}
+            image={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`}
+          />
+        ))
+      }
+    </div>
+    }
       <div className="container-around">
         <button className="itemButton" onClick={previousPage} disabled={offset===12}>Previous</button>
         <button className="itemButton" onClick={nextPage}>Next Page</button>
