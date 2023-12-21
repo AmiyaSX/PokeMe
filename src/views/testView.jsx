@@ -14,7 +14,7 @@ function TestView(props) {
     <div>
       <Banner text="Test" />
       <div className="progress-container">
-        <Progress hasStripe colorScheme='green' size='md' value={props.progress} />
+        <Progress hasStripe colorScheme='blue' size='md' value={props.progress} />
       </div>
       <div className="questionContainer">
         {questions.map((question, index) => {
