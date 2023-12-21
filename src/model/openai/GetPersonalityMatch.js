@@ -1,12 +1,13 @@
 import OpenAI from "openai";
+import { getOpenAIKey } from "../firebaseModel";
 
 export const callChatGPT = async (formattedResponses) => {
   let requestPrompt = `Questions are answered using a Likert scale, where 7 is agree, 1 is disagree, and 4 is neutral. These questions are designed to test the responder’s personality. Please match the responder’s personality to a Pokemon based on the answer provided below. Reply in this JSON structure: {"pokemon": …, "reason": …}. Here is the questions asked and the user's response: ${formattedResponses}`;
 
-  console.log(requestPrompt);
+  console.log("getOpenAIKey", getOpenAIKey());
 
   let openai = new OpenAI({
-    apiKey: "sk-",
+    apiKey: await getOpenAIKey(),
     dangerouslyAllowBrowser: true,
   });
 
@@ -24,13 +25,11 @@ export const callChatGPT = async (formattedResponses) => {
 
     const parsedResponse = JSON.parse(content);
 
-    console.log('Parsed response:', parsedResponse);
+    console.log("Parsed response:", parsedResponse);
 
     return parsedResponse;
-
-
   } catch (error) {
     console.error("Error calling OpenAI:", error);
-    throw error; 
+    throw error;
   }
 };

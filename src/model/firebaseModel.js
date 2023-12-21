@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { getDatabase, ref, get, set, push, onValue } from "firebase/database";
 import firebaseConfig from "./firebaseConfig.js";
 import { configure } from "mobx";
@@ -7,6 +8,7 @@ configure({ enforceActions: "never" }); // we don't use Mobx actions
 // Initialise firebase app, database, ref
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+const dbFirestore = getFirestore(app);
 
 const auth = getAuth(app);
 
@@ -14,6 +16,11 @@ const PATH = "PokeMe";
 const rf = ref(db, PATH);
 // set(ref(db, PATH+"/test"), "dummy"); /* this is for db initialize testing */
 
+async function getOpenAIKey() {
+  const docRef = doc(dbFirestore, "openai_key", "openai_key");
+  const docSnap = await getDoc(docRef);
+  return docSnap.data().key;
+}
 function modelToPersistence(model) {}
 
 function persistenceToModel(data, model) {}
@@ -43,7 +50,7 @@ function saveResultToHistory(userId, testResult) {
 
   const newHistoryRef = push(historyRef);
 
-  const timestamp = new Date().toISOString(); 
+  const timestamp = new Date().toISOString();
   const historyEntry = {
     ...testResult,
     date: timestamp,
@@ -51,7 +58,9 @@ function saveResultToHistory(userId, testResult) {
 
   return set(newHistoryRef, historyEntry)
     .then(() => console.log("Result saved to history successfully"))
-    .catch((error) => console.error("Failed to save result to history:", error));
+    .catch((error) =>
+      console.error("Failed to save result to history:", error)
+    );
 }
 
 function readHistoryFromFirebase(userId, callback) {
@@ -88,6 +97,7 @@ export {
   readFromFirebase,
   readHistoryFromFirebase,
   saveResultToHistory,
+  getOpenAIKey,
 };
 
 export default connectToFirebase;
