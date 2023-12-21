@@ -11,8 +11,7 @@ import History from "./historyPresenter";
 import TopBar from "../views/components/topbar";
 import React, { useEffect, useState } from "react";
 import { AuthProvider } from "../model/authContext";
-import promiseNoDataView from "../views/promiseNoData.jsx";
-
+import { ChakraProvider } from "@chakra-ui/react";
 
 export default observer(function ReactRoot(props) {
   const [notOnStartPage, setNotOnStartPage] = useState(window.location.hash!=="");
@@ -26,6 +25,7 @@ export default observer(function ReactRoot(props) {
   function makeRouter(model) {
     return createHashRouter([
       { path: "/", element: <Start model={model} /> },
+      // { path: "/", element: <Test model={model}/>},
       { path: "/login", element: <Login model={model} /> },
       { path: "/register", element: <Register model={model} /> },
       { path: "/home", element: <Home model={model} /> },
@@ -37,16 +37,21 @@ export default observer(function ReactRoot(props) {
   }
   function App(props) {
     return (
+        
             <AuthProvider>
-              <div>
-                {
-                  notOnStartPage && (
-                    <TopBar />
-                  )
-                }
-                <RouterProvider router={makeRouter(props.model)} />
-              </div>
+              <ChakraProvider>
+                <div>
+                  {
+                    notOnStartPage && (
+                      <TopBar />
+                    )
+                  }
+                  <RouterProvider router={makeRouter(props.model)} />
+                </div>
+              </ChakraProvider>
+              
             </AuthProvider>
+            
           );
   }
   return <App model={props.model}></App>;

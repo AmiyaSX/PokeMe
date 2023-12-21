@@ -2,8 +2,9 @@ import Banner from "./components/banner";
 import TestItem from "./components/testItem";
 import Icon1 from "../assets/images/avatar.png";
 import Icon2 from "../assets/images/gaming.png";
-import React, { useState } from "react";
+import React from "react";
 import { callChatGPT } from "../model/openai/GetPersonalityMatch";
+import { Progress } from '@chakra-ui/react';
 import questions from "../model/questions";
 import "/src/style.css";
 
@@ -12,6 +13,9 @@ function TestView(props) {
   return (
     <div>
       <Banner text="Test" />
+      <div className="progress-container">
+        <Progress hasStripe colorScheme='green' size='md' value={props.progress} />
+      </div>
       <div className="questionContainer">
         {questions.map((question, index) => {
           const isAnswered = props.selections[index] != null;

@@ -1,7 +1,6 @@
 // (1) ------------ application state (model) -----------
 import model from "/src/model/PokemeModel.js";
 import connectToFirebase from "/src/model/firebaseModel.js";
-import promiseNoDataView from "../views/promiseNoData.jsx";
 
 // uncomment to make the app update when the model changes:
 import { observable, configure, reaction } from "mobx";
@@ -28,4 +27,4 @@ createRoot(document.getElementById("root")).render(
 // ------ for debug purposes ----------
 // window.myModel= model;             // make the model available in the Console
 window.myModel = reactiveModel;
-connectToFirebase(reactiveModel, reaction);
+// connectToFirebase(reactiveModel, reaction);

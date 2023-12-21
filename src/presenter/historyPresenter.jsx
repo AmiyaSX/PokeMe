@@ -3,7 +3,6 @@ import { AuthContext } from "../model/authContext";
 import { readHistoryFromFirebase } from "../model/firebaseModel";
 import HistoryView from "../views/historyView";
 import { observer } from "mobx-react-lite";
-import promiseNoDataView from "../views/promiseNoData.jsx";
 
 const History = observer(() => {
     const { currentUser } = useContext(AuthContext);

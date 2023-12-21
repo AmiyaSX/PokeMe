@@ -9,7 +9,6 @@ import { callChatGPT } from "../model/openai/GetPersonalityMatch";
 import "/src/style.css";
 import { observer } from "mobx-react-lite";
 import _get_window_height from "../utilities";
-import promiseNoDataView from "../views/promiseNoData.jsx";
 import { response } from "msw";
 
 
@@ -21,17 +20,24 @@ export default observer(function Test(props) {
   const [showAlert, setShowAlert] = useState(false);
   const navigate = useNavigate(); 
   const questionRefs = useRef(questions.map(() => React.createRef()));
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     if (currentUser) {
       readFromFirebase(currentUser.uid, (savedState) => {
-        if (savedState) setSelections(savedState);
+        if (savedState) {
+          setSelections(savedState);
+          console.log("savedState:" + savedState);
+          console.log("selections: "+ Object.keys(savedState).length);
+          setProgress(Object.keys(savedState).length*5);
+        }
       });
     }
   }, [currentUser]);
 
   useEffect(() => {
     if (currentUser && Object.keys(selections).length > 0) {
+      setProgress(Object.keys(selections).length*5);
       saveToFirebase(currentUser.uid, selections);
     }
   }, [selections, currentUser]);
@@ -96,9 +102,12 @@ export default observer(function Test(props) {
     setSelections((prevSelections) => {
       const updatedSelections = { ...prevSelections };
       if (updatedSelections[index] === value) {
-        delete updatedSelections[index]; 
+        delete updatedSelections[index];
+        setProgress(progress-5); 
       } else {
-        updatedSelections[index] = value; 
+        if(updatedSelections[index]==='') setProgress(progress+5) 
+        updatedSelections[index] = value;
+      console.log(progress)
       }
   
       saveToFirebase(currentUser.uid, updatedSelections);
@@ -134,6 +143,7 @@ export default observer(function Test(props) {
             toTop={toTop}
             selections={selections}
             questionRefs={questionRefs}
+            progress={progress}
         />;
     </>
   );

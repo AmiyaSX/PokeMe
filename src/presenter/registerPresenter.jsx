@@ -4,7 +4,6 @@ import { auth } from "../model/firebaseModel";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import RegisterView from "../views/registerView";
 import Alert from "../views/components/alert.jsx";
-import promiseNoDataView from "../views/promiseNoData.jsx";
 
 
 const RegisterPresenter = observer(() => {
