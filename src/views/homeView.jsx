@@ -29,6 +29,13 @@ function HomeView(props) {
     setOffset(offset+12);
     setLoading(false);
   }
+  const previousPage = async () => {
+    setLoading(true);
+    const data = await getPokemons(12, offset-12);
+    setPokemons(data);
+    setOffset(offset-12);
+    setLoading(false);
+  }
   return (
       <div>
       <Banner text="Pokemon Personality Test" className="banner-text" />
@@ -46,7 +53,8 @@ function HomeView(props) {
           ))
         }
       </div>
-      <div className="container-right">
+      <div className="container-around">
+        <button className="itemButton" onClick={previousPage} disabled={offset===12}>Previous</button>
         <button className="itemButton" onClick={nextPage}>Next Page</button>
       </div>
       <div className="floating-button-div">

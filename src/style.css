@@ -211,6 +211,17 @@ h1 {
   height: fit-content;
 }
 
+.container-around {
+  display: flex;
+  width: 100%;
+  margin-left: 5vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  margin-right: auto;
+  justify-content:space-between;
+  place-items: center;
+}
+
 
 .history {
   display: flex;

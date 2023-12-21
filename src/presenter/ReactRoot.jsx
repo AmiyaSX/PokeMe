@@ -25,7 +25,6 @@ export default observer(function ReactRoot(props) {
   function makeRouter(model) {
     return createHashRouter([
       { path: "/", element: <Start model={model} /> },
-      // { path: "/", element: <Test model={model}/>},
       { path: "/login", element: <Login model={model} /> },
       { path: "/register", element: <Register model={model} /> },
       { path: "/home", element: <Home model={model} /> },
