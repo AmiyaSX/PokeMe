@@ -21,6 +21,7 @@ async function getOpenAIKey() {
   const docSnap = await getDoc(docRef);
   return docSnap.data().key;
 }
+
 function modelToPersistence(model) {}
 
 function persistenceToModel(data, model) {}
