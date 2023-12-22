@@ -70,7 +70,7 @@ function TestResultsView(props) {
         <div className="flextRowParent">
           <button className="button_2" onClick={props.handleShare}>
             <img src={Icon3} alt="Share" width={58} height={58} />
-            <div style={{ fontSize: "2.5vh" }}>Share!</div>
+            <div style={{ fontSize: "2.5vh" }}>Share to FaceBook</div>
           </button>
         </div>
       </div>

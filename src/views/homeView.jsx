@@ -38,7 +38,7 @@ function HomeView(props) {
   }
   return (
       <div>
-      <Banner text="Pokemon Personality Test" className="banner-text" />
+      <Banner text="Pokémon Personality Test" className="banner-text" />
       <div className="center-text">Let's revisit some familiar Pokémon characters!</div>
     {
       loading?

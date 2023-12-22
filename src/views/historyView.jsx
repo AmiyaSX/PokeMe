@@ -8,7 +8,7 @@ import "/src/style.css";
 const HistoryView = ({ history, formatDate, goToTest, goHome }) => {  
   return (
     <div>
-      <Banner text="Your Pokemon History" />
+      <Banner text="Your Pokémon History" />
       <div>
         {history.map((item, index) => {
           if (!item.pokemon) {

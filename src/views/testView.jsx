@@ -14,6 +14,7 @@ function TestView(props) {
     <div>
       <Banner text="Test" />
       <div className="progress-container">
+        <div style={{width: "fit-content", fontSize:"1.5vw"}}>{props.progress}%</div>
         <Progress hasStripe colorScheme='blue' size='md' value={props.progress} />
       </div>
       <div className="questionContainer">
