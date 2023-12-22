@@ -5,27 +5,40 @@ Welcome to PokéMe!
 Try it here:
 https://pokeme-dh2642.web.app/
 
+## How to Setup
+
+1. install packages and dependencies
+
+```
+npm install
+```
+
+2. start development server
+
+```
+npm run dev
+```
+
+3. Point your browser to HTML address: 
+
+http://localhost:8080/react.html
+
 ## About PokéMe
 
 An interactive web application designed for Pokémon enthusiasts. The app provides a fun and engaging personality test for finding users the matching Pokemons. Also, the website offers detailed information about each Pokémon. Users can take the test, get their Pokémon match, and explore a database of Pokémon details.
 
 ## What We Have Done
 
-- Built up basic front-end interface, alowing routing within the app for navigation between different views (Home, Test, History, etc.).
-- Implemented basic interactions between user and the interface.
-- Created partial responsive CSS designs for a user-friendly experience across different devices.
-- Integrated the PokeAPI to fetch and display a list of Pokémon and their images on view items.
-- Implemented sharing feature(share to Facebook).
-- Finished Login&Register logic.
+- User interface, navigation between different views (Home, Test, History, etc.).
+- Interactions between user and the interface.
+- Responsive CSS designs for UX across different devices.
+- Fetch and display a list of Pokémon item through PokeAPI.
+- Sharing feature(share to Facebook).
+- Login&Register logic.
+- User authentication to enable saving test results and viewing history.
 - Collected user feedbacks with current application.
-
-## What We Plan to Do
-
-- Set up the OpenAI API to analyze test results and suggest a matching Pokémon.
-- Finalize the logic that connects the personality test answers to the OpenAI API to get accurate Pokémon matches.
-- Add user authentication to enable saving test results and viewing history.
-- Do some further improvement based on collected user feedback.
 - Improve UI design, add effect and animation. 
+- Set up the OpenAI API to analyze test results and suggest a matching Pokémon.
 
 ## Project Structure
 
